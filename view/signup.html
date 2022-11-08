@@ -1,209 +1,159 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Colorlib Templates" />
+    <meta name="author" content="Colorlib" />
+    <meta name="keywords" content="Colorlib Templates" />
 
-<!-- Mirrored from themebeyond.com/html/geco/Geco/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:01 GMT -->
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="vendor/mdi-font/css/material-design-iconic-font.min.css"
+      rel="stylesheet"
+      media="all"
+    />
+    <link
+      href="vendor/font-awesome-4.7/css/font-awesome.min.css"
+      rel="stylesheet"
+      media="all"
+    />
+    <!-- Font special for pages-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>OnlyTrades</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all" />
+    <link
+      href="vendor/datepicker/daterangepicker.css"
+      rel="stylesheet"
+      media="all"
+    />
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <!-- Main CSS-->
+    <link href="css/register.css" rel="stylesheet" media="all" />
+  </head>
 
-    <!-- CSS here -->
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="css/odometer.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/meanmenu.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/login.css">
-</head>
-
-<body>
-
-    <!-- preloader -->
-    <div id="preloader">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <img src="img/icon/o.gif" alt="">
-            </div>
-        </div>
-    </div>
-    <!-- preloader-end -->
-
-
-
-    <div id="sticky-header" class="transparent-header">
-        <div class="container-fluid s-container-full-padding">
-            <div class="row">
-                <div class="col-12">
-                    <div class="main-menu menu-style-two">
-                        <nav>
-                            <div class="logo">
-                                <a href="index.html"><img src="img/logo/logo.png" alt="Logo" width="200px"></a>
-                            </div>
-                            <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
-
-                            </div>
-
-                        </nav>
+  <body>
+    <div class="page-wrapper bg-gra-02 font-poppins">
+      <div class="wrapper wrapper--w960">
+        <div class="card card-4">
+          <div class="card-body">
+            <h2 class="title">Registration Form</h2>
+            <form method="POST">
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">first name</label>
+                    <input
+                      class="input--style-4"
+                      type="text"
+                      name="first_name"
+                    />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">last name</label>
+                    <input
+                      class="input--style-4"
+                      type="text"
+                      name="last_name"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">Birthday</label>
+                    <div class="input-group-icon">
+                      <input
+                        class="input--style-4 js-datepicker"
+                        type="text"
+                        name="birthday"
+                      />
+                      <i
+                        class="zmdi zmdi-calendar-note input-icon js-btn-calendar"
+                      ></i>
                     </div>
-                    <div class="mobile-menu"></div>
+                  </div>
                 </div>
-                <!-- Modal Search -->
-                <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <form>
-                                <input type="text" placeholder="Search here...">
-                                <button><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">Gender</label>
+                    <div class="p-t-10">
+                      <label class="radio-container m-r-45"
+                        >Male
+                        <input type="radio" checked="checked" name="gender" />
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="radio-container"
+                        >Female
+                        <input type="radio" name="gender" />
+                        <span class="checkmark"></span>
+                      </label>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    </header>
-    <!-- header-area-end -->
-
-    <!-- main-area -->
-    <main>
-
-        <!-- breadcrumb-area -->
-        <section class="breadcrumb-area breadcrumb-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumb-content text-center">
-                            <h2>Sign <span>Up</span></h2>
-                        </div>
-                    </div>
+              </div>
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">Email</label>
+                    <input class="input--style-4" type="email" name="email" />
+                  </div>
                 </div>
-            </div>
-        </section>
-        <!-- breadcrumb-area-end -->
-
-
-
-    </main>
-    <!-- main-area-end -->
-    <div class="amon">
-        <div class="container">
-            <form id="form">
-
-                <!-- /**
-                * ! first name Input
-                **/ -->
-                <div>
-                    <label for="user">First name</label>
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="FirstN" id="FirstN" placeholder="First name here">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">Phone Number</label>
+                    <input class="input--style-4" type="text" name="phone" />
+                  </div>
                 </div>
-                <!-- /**
-            * ! last name Input
-            **/ -->
-                <div>
-                    <label for="user">Last name</label>
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="lastN" id="lastN" placeholder="LastName Here">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
+              </div>
+              <div class="input-group">
+                <label class="label">Subject</label>
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select name="subject">
+                    <option disabled="disabled" selected="selected">
+                      Choose option
+                    </option>
+                    <option>Subject 1</option>
+                    <option>Subject 2</option>
+                    <option>Subject 3</option>
+                  </select>
+                  <div class="select-dropdown"></div>
                 </div>
-                <!-- /**
-                * ! username Input
-                **/ -->
-                <div>
-                    <label for="user">Username</label>
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="user" id="user" placeholder="Username Here">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
-                </div>
-                <!-- /**
-            * ! Email Input
-            **/ -->
-                <div>
-                    <label for="email">Email</label>
-                    <i class="far fa-envelope"></i>
-                    <input type="email" name="email" id="email" placeholder="abc@gmail.com">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
-                </div>
-                <!-- /**
-            * ! Password Input
-            **/ -->
-                <div>
-                    <label for="password">Password</label>
-                    <i class="fas fa-lock"></i>
-                    <input type="password" name="password" id="password" placeholder="Password here">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
-                </div>
-                <!-- /**
-                * ! Confirm pass Input
-                **/ -->
-                <div>
-                    <label for="password">Confirm password</label>
-                    <i class="fas fa-lock"></i>
-                    <input type="password" name="confirmP" id="confirmP" placeholder="confirm password here">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
-                </div>
-
-                <button type="submit" id="submit">Sign Up</button>
+              </div>
+              <div class="p-t-15">
+                <button class="btn btn--radius-2 btn--blue" type="submit">
+                  Submit
+                </button>
+              </div>
             </form>
-
+          </div>
         </div>
-        <script src="js/login.js"></script>
+      </div>
+    </div>
 
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
 
-
-
-        <!-- JS here -->
-        <script data-cfasync="false"
-            src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="js/vendor/jquery-3.4.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/isotope.pkgd.min.js"></script>
-        <script src="js/slick.min.js"></script>
-        <script src="js/jquery.meanmenu.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/jquery.lettering.js"></script>
-        <script src="js/jquery.textillate.js"></script>
-        <script src="js/jquery.odometer.min.js"></script>
-        <script src="js/jquery.appear.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.countdown.min.js"></script>
-        <script src="js/jquery.scrollUp.min.js"></script>
-        <script src="js/imagesloaded.pkgd.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-</body>
-</div>
-
-<!-- Mirrored from themebeyond.com/html/geco/Geco/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:17 GMT -->
-
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+  </body>
+  <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
+<!-- end document-->
