@@ -5,6 +5,18 @@
   <title>CodePen - Glassmorphism Creative Cloud App Redesign</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="css/stylebackend.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/odometer.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/meanmenu.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
 </head>
 <body>
@@ -12,7 +24,6 @@
 <div class="video-bg">
  <video width="320" height="240" autoplay loop muted>
   <source src="img/vid2.mp4" type="video/mp4">
-Your browser does not support the video tag.
 </video>
 </div>
 <div class="dark-light">
@@ -159,7 +170,227 @@ Your browser does not support the video tag.
     </div>
    </div>
    <div class="content-wrapper">
+   <main>
+        <!-- slider-area -->
+                <div class="row">
+                <section class="shop-area black-bg pt-115 pb-90">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-6 col-lg-8">
+                                    <div class="section-title title-style-three white-title text-center mb-40">
+                                        <h2>Our <span>PointsShop</span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row product-active">
+                                <div class="col-xl-3">
+                                    <div class="shop-item">
+                                        <div class="product-thumb">
+                                            <a><img id="prod0" src=""></a>
+                                        </div>
+                                        <div class="product-content">
+                                        <div class="product-tag"><a id="prod0n" href="addshop.php">ADD TO MERCH</a></div>
+                                            <h4 id="prod0q"></h4>
+                                            <div class="product-meta">
+                                                <div class="product-price">
+                                                    <h5 id="prod0p"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3">
+                                    <div class="shop-item">
+                                        <div class="product-thumb">
+                                        <a><img id="prod1" src=""></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-tag"><a id="prod1n" href="addshop.php">ADD TO MERCH</a></div>
+                                             <h4 id="prod1q"></h4> 
+                                            <div class="product-meta">
+                                                <div class="product-price">
+                                                    <h5 id="prod1p"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3">
+                                    <div class="shop-item">
+                                        <div class="product-thumb">
+                                        <a><img id="prod2" src=""></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-tag"><a id="prod2n" href="addshop.php">ADD TO MERCH</a></div>
+                                            <h4 id="prod2q"></h4> 
+                                            <div class="product-meta">
+                                                <div class="product-price">
+                                                <h5 id="prod2p"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3">
+                                    <div class="shop-item">
+                                        <div class="product-thumb">
+                                        <a><img id="prod3" src=""></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-tag"><a id="prod3n" href="addshop.php">ADD TO MERCH</a></div>
+                                            <h4 id="prod3q"></h4> 
+                                            <div class="product-meta">
+                                                <div class="product-price">
+                                                <h5 id="prod3p"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3">
+                                    <div class="shop-item">
+                                        <div class="product-thumb">
+                                        <a><img id="prod4" src=""></a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-tag"><a id='prod4n' href="addshop.php">ADD TO MERCH</a></div>
+                                            <h4 id="prod4q"></h4> 
+                                            <div class="product-meta">
+                                                <div class="product-price">
+                                                <h5 id="prod4p"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+                </div>
+    </main>
+    <!-- slider-area-end -->
+    <!-- PHP HERE -->
+    <?php
+    require '../controller/merch.php';
+        $tab=new merch;
+       $tab0 = $tab->affiche();
+     ?>
+     <script language='Javascript'>
+        var char="javascript:void(0)";
+        var tab00="<?php if(isset($tab0[0]['id'])) echo ($tab0[0]['id']); else echo("");?>";
+        var tab11="<?php if(isset($tab0[1]['id'])) echo ($tab0[1]['id']); else echo("");?>";
+        var tab22="<?php if(isset($tab0[2]['id'])) echo ($tab0[2]['id']); else echo("");?>";
+        var tab33="<?php if(isset($tab0[3]['id'])) echo ($tab0[3]['id']); else echo("");?>";
+        var tab44="<?php if(isset($tab0[4]['id'])) echo ($tab0[4]['id']); else echo("");?>";
+                if(tab00!="")
+                {
+        var
+            prod0 = document.getElementById("prod0");
+        var
+            prod0n = document.getElementById("prod0n");
+        var
+            prod0q = document.getElementById("prod0q");
+        var
+            prod0p = document.getElementById("prod0p");
+        var tab4 = '<?php if(isset($tab0[0]['img_url'])) echo ($tab0[0]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[0]['name'])) echo ($tab0[0]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[0]['quantity'])) echo ($tab0[0]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[0]['price'])) echo ($tab0[0]['price']); else echo(""); ?>';
+        prod0.src= tab4;
+        prod0n.href= char;
+        prod0n.innerHTML = tab1;
+        prod0q.innerHTML = 'quantity: '+tab2;
+        prod0p.innerHTML = 'Price: '+tab3+' OTP';
+                }
+       if (tab11!="")
+       {
+         var
+            prod1 = document.getElementById("prod1");
+        var
+            prod1n = document.getElementById("prod1n");
+        var
+            prod1q = document.getElementById("prod1q");
+        var
+            prod1p = document.getElementById('prod1p');
+        var tab4 = '<?php if(isset($tab0[1]['img_url'])) echo ($tab0[1]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[1]['name'])) echo ($tab0[1]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[1]['quantity'])) echo ($tab0[1]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[1]['price'])) echo ($tab0[1]['price']); else echo(""); ?>';
+        prod1.src= tab4;
+        prod1n.href= char;
+        prod1n.innerHTML = tab1;
+        prod1q.innerHTML = 'quantity: '+tab2;
+        prod1p.innerHTML = 'Price: '+tab3+' OTP';
+         } 
+         if (tab22!="")
+         {
+            var
+            prod2 = document.getElementById("prod2");
+        var
+            prod2n = document.getElementById("prod2n");
+        var
+            prod2q = document.getElementById("prod2q");
+        var
+            prod2p = document.getElementById("prod2p");
+        var tab4 = '<?php if(isset($tab0[2]['img_url'])) echo ($tab0[2]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[2]['name'])) echo ($tab0[2]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[2]['quantity'])) echo ($tab0[2]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[2]['price'])) echo ($tab0[2]['price']); else echo(""); ?>';
+        prod2.src= tab4;
+        prod2n.href= char;
+        prod2n.innerHTML = tab1;
+        prod2q.innerHTML = 'quantity: '+tab2;
+        prod2p.innerHTML = 'Price: '+tab3+' OTP';
+         } 
+         if (tab33!="")
+         {
+            var
+            prod3 = document.getElementById("prod3");
+        var
+            prod3n = document.getElementById("prod3n");
+        var
+            prod3q = document.getElementById("prod3q");
+        var
+            prod3p = document.getElementById("prod3p");
+        var tab4 = '<?php if(isset($tab0[3]['img_url'])) echo ($tab0[3]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[3]['name'])) echo ($tab0[3]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[3]['quantity'])) echo ($tab0[3]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[3]['price'])) echo ($tab0[3]['price']); else echo(""); ?>';
+        prod3.src= tab4;
+        prod3n.href= char;
+        prod3n.innerHTML = tab1;
+        prod3q.innerHTML = 'quantity: '+tab2;
+        prod3p.innerHTML = 'Price: '+tab3+' OTP';
+         } 
+         if (tab44!="")
+         {
+            var
+            prod4 = document.getElementById("prod4");
+        var
+            prod4n = document.getElementById("prod4n");
+        var
+            prod4q = document.getElementById("prod4q");
+        var
+            prod4p = document.getElementById('prod4p');
+        var tab4 = '<?php if(isset($tab0[4]['img_url'])) echo ($tab0[4]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[4]['name'])) echo ($tab0[4]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[4]['quantity'])) echo ($tab0[4]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[4]['price'])) echo ($tab0[4]['price']); else echo(""); ?>';
+        prod4.src= tab4;
+        prod4n.href= char;
+        prod4n.innerHTML = tab1;
+        prod4q.innerHTML = 'quantity: '+tab2;
+        prod4p.innerHTML = 'Price: '+tab3+' OTP';
+         } 
+        </script> 
+        
+    
 
+
+
+
+    <!-- END PHP -->
+    
 
 
  
@@ -169,7 +400,29 @@ Your browser does not support the video tag.
  <div class="overlay-app"></div>
 </div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="js/script.js"></script>
+<!-- JS here -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="js/script.js"></script>
+<script src="js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.lettering.js"></script>
+    <script src="js/jquery.textillate.js"></script>
+    <script src="js/jquery.odometer.min.js"></script>
+    <script src="js/jquery.appear.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+     <script  src="js/script.js"></script>
+     
 
 </body>
 </html>
