@@ -172,8 +172,9 @@
    <div class="content-wrapper">
    <main>
         <!-- slider-area -->
+        <div class="container custom-container">
                 <div class="row">
-                <section class="shop-area black-bg pt-115 pb-90">
+                    <section class="shop-area black-bg pt-115 pb-90">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-xl-6 col-lg-8">
@@ -265,8 +266,6 @@
                                 </div>
                             </div>
                         </div>
-                </section>
-                </div>
     </main>
     <!-- slider-area-end -->
     <!-- PHP HERE -->
