@@ -328,7 +328,7 @@
         prod0q.innerHTML = 'quantity: '+tab2;
         prod0p.innerHTML = 'Price: '+tab3+' OTP';
         prod0dd.className='product-tag';
-        prod0d.href="<?php if(isset($tab0[0]['id'])) echo ('deletemerch.php?id='.$tab0[0]['id']);?>";
+        prod0d.href="<?php if(isset($tab0[0]['id'])) echo ('../model/deletemerch.php?id='.$tab0[0]['id']);?>";
         prod0d.innerHTML="Delete";
                 }
        if (tab11!="")
@@ -353,7 +353,7 @@
         prod1q.innerHTML = 'quantity: '+tab2;
         prod1p.innerHTML = 'Price: '+tab3+' OTP';
         prod1dd.className='product-tag';
-        prod1d.href="<?php if(isset($tab0[1]['id'])) echo ('deletemerch.php?id='.$tab0[1]['id']);?>";
+        prod1d.href="<?php if(isset($tab0[1]['id'])) echo ('../model/deletemerch.php?id='.$tab0[1]['id']);?>";
         prod1d.innerHTML="Delete";
          } 
          if (tab22!="")
@@ -378,7 +378,7 @@
         prod2q.innerHTML = 'quantity: '+tab2;
         prod2p.innerHTML = 'Price: '+tab3+' OTP';
         prod2dd.className='product-tag';
-        prod2d.href="<?php if(isset($tab0[2]['id'])) echo ('deletemerch.php?id='.$tab0[2]['id']);?>";
+        prod2d.href="<?php if(isset($tab0[2]['id'])) echo ('../model/deletemerch.php?id='.$tab0[2]['id']);?>";
         prod2d.innerHTML="Delete";
          } 
          if (tab33!="")
@@ -403,7 +403,7 @@
         prod3q.innerHTML = 'quantity: '+tab2;
         prod3p.innerHTML = 'Price: '+tab3+' OTP';
         prod3dd.className='product-tag';
-        prod3d.href="<?php if(isset($tab0[3]['id'])) echo ('deletemerch.php?id='.$tab0[3]['id']);?>";
+        prod3d.href="<?php if(isset($tab0[3]['id'])) echo ('../model/deletemerch.php?id='.$tab0[3]['id']);?>";
         prod3d.innerHTML="Delete";
          } 
          if (tab44!="")
@@ -428,7 +428,7 @@
         prod4q.innerHTML = 'quantity: '+tab2;
         prod4p.innerHTML = 'Price: '+tab3+' OTP';
         prod4dd.className='product-tag';
-        prod4d.href="<?php if(isset($tab0[4]['id'])) echo ('deletemerch.php?id='.$tab0[4]['id']);?>";
+        prod4d.href="<?php if(isset($tab0[4]['id'])) echo ('../model/deletemerch.php?id='.$tab0[4]['id']);?>";
         prod4d.innerHTML="Delete";
          } 
         </script> 
