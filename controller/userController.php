@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php require("C:\\xampp\htdocs\\foreal\controller\\config.php"); ?>
+<?php require("C:\\xampp\htdocs\\foreal\model\\config.php"); ?>
 <?php
 // connect to the database
 // $pdo = config::getConnexion();
@@ -9,7 +9,7 @@ if (isset($_POST['reg_user'])) {
     // receive all input values from the form
     $username = $_POST['firstName'];
     $email = $_POST['email'];
-    // $phone = $_POST['phone'];
+    $gender = $_POST['gender'];
     $password = $_POST['password'];
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -27,7 +27,7 @@ if (isset($_POST['reg_user'])) {
         echo ("email already exists");
     } else {
         // $password = md5($password_1); //encrypt the password before saving in the database
-        $query = "INSERT INTO users (username, first_name ,last_name, email, password ,birthdate) VALUES (:username,:firstName,:lastName, :email, :password,:birthdate)";
+        $query = "INSERT INTO users (username, first_name ,last_name, email, password ,birthdate,gender) VALUES (:username,:firstName,:lastName, :email, :password,:birthdate,:gender)";
         $stmt = $pdo->prepare($query);
         $stmt->execute([
             ':firstName' => $firstName,
@@ -35,10 +35,15 @@ if (isset($_POST['reg_user'])) {
             ':username' => $username,
             ':email' => $email,
             ':password' => $password,
-            ':birthdate' => $birthdate
+            ':birthdate' => $birthdate,
+            ':gender' => $gender
         ]);
+        header('Location: http://localhost/foreal/view/');
+        die();
     }
 }
+
+// LOGIN USER
 if (isset($_POST['login_user'])) {
     // receive all input values from the form
 
