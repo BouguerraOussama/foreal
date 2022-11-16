@@ -494,7 +494,6 @@
        $tab0 = $tab->affiche();
      ?>
      <script language='Javascript'>
-        var char="javascript:void(0)";
         var tab00="<?php if(isset($tab0[0]['id'])) echo ($tab0[0]['id']); else echo("");?>";
         var tab11="<?php if(isset($tab0[1]['id'])) echo ($tab0[1]['id']); else echo("");?>";
         var tab22="<?php if(isset($tab0[2]['id'])) echo ($tab0[2]['id']); else echo("");?>";
@@ -517,7 +516,6 @@
         var tab2 = '<?php if(isset($tab0[0]['quantity'])) echo ($tab0[0]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[0]['price'])) echo ($tab0[0]['price']); else echo(""); ?>';
         prod0.src= tab4;
-        prod0n.href= char;
         prod0n.innerHTML = tab1;
         prod0q.innerHTML = 'quantity: '+tab2;
         prod0p.innerHTML = 'Price: '+tab3+' OTP';
@@ -541,7 +539,6 @@
         var tab2 = '<?php if(isset($tab0[1]['quantity'])) echo ($tab0[1]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[1]['price'])) echo ($tab0[1]['price']); else echo(""); ?>';
         prod1.src= tab4;
-        prod1n.href= char;
         prod1n.innerHTML = tab1;
         prod1q.innerHTML = 'quantity: '+tab2;
         prod1p.innerHTML = 'Price: '+tab3+' OTP';
@@ -565,7 +562,6 @@
         var tab2 = '<?php if(isset($tab0[2]['quantity'])) echo ($tab0[2]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[2]['price'])) echo ($tab0[2]['price']); else echo(""); ?>';
         prod2.src= tab4;
-        prod2n.href= char;
         prod2n.innerHTML = tab1;
         prod2q.innerHTML = 'quantity: '+tab2;
         prod2p.innerHTML = 'Price: '+tab3+' OTP';
@@ -590,7 +586,6 @@
         var tab2 = '<?php if(isset($tab0[3]['quantity'])) echo ($tab0[3]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[3]['price'])) echo ($tab0[3]['price']); else echo(""); ?>';
         prod3.src= tab4;
-        prod3n.href= char;
         prod3n.innerHTML = tab1;
         prod3q.innerHTML = 'quantity: '+tab2;
         prod3p.innerHTML = 'Price: '+tab3+' OTP';
@@ -615,7 +610,6 @@
         var tab2 = '<?php if(isset($tab0[4]['quantity'])) echo ($tab0[4]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[4]['price'])) echo ($tab0[4]['price']); else echo(""); ?>';
         prod4.src= tab4;
-        prod4n.href= char;
         prod4n.innerHTML = tab1;
         prod4q.innerHTML = 'quantity: '+tab2;
         prod4p.innerHTML = 'Price: '+tab3+' OTP';
