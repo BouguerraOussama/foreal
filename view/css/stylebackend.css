@@ -386,22 +386,22 @@ body.light-mode .video-bg:before {
   font-size: 11px;
 }
 
-.main-header {
+.main-header1 {
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   height: 58px;
   flex-shrink: 0;
 }
-.main-header .header-menu {
+.main-header1 .header-menu {
   margin-left: 150px;
 }
 @media screen and (max-width: 1055px) {
-  .main-header .header-menu {
+  .main-header1 .header-menu {
     margin: auto;
   }
 }
-.main-header .header-menu a {
+.main-header1 .header-menu a {
   padding: 20px 24px;
 }
 

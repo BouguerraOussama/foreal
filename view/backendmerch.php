@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Glassmorphism Creative Cloud App Redesign</title>
+  <title>Backendmerch</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="css/stylebackend.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -157,15 +157,15 @@
    </div>
   </div>
   <div class="main-container">
-   <div class="main-header">
+   <div class="main-header1">
     <a class="menu-link-main" href="#">All MODULES</a>
     <div class="header-menu">
-     <a class="main-header-link" href="#">Accounts</a>
-     <a class="main-header-link" href="#">Products</a>
-     <a class="main-header-link" href="#">Events</a>
-     <a class="main-header-link is-active" href="backendmerch.php">Merch</a>
-     <a class="main-header-link" href="#">Forums</a>
-     <a class="main-header-link" href="#">Reports</a>
+     <a class="main-header1-link" href="#">Accounts</a>
+     <a class="main-header1-link" href="#">Products</a>
+     <a class="main-header1-link" href="#">Events</a>
+     <a class="main-header1-link is-active" href="backendmerch.php">Merch</a>
+     <a class="main-header1-link" href="#">Forums</a>
+     <a class="main-header1-link" href="#">Reports</a>
 
     </div>
    </div>
@@ -174,7 +174,7 @@
         <!-- slider-area -->
         <div class="container custom-container">
                 <div class="row">
-                    <section class="shop-area black-bg pt-115 pb-90">
+                    <section class="shop-area black-bg pt-115 pb-90" style="display:contents">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-xl-6 col-lg-8">
@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="row product-active">
-                                <div class="col-xl-3">
+                                <div class="col-xl-3" style="margin-bottom:30px">
                                     <div class="shop-item">
                                         <div class="product-thumb">
                                             <a><img id="prod0" src=""></a>
@@ -197,6 +197,11 @@
                                                     <h5 id="prod0p"></h5>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="product-content">
+                                        <form method="get">
+                                        <div id='prod0dd'><a id="prod0d" href='javascript:void(0)'></a></div>
+                                         </form>
                                         </div>
                                     </div>
                                 </div>
@@ -214,6 +219,11 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="product-content">
+                                        <form method="get">
+                                        <div id='prod1dd'><a id="prod1d" href='javascript:void(0)'></a></div>
+                                         </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3">
@@ -229,6 +239,11 @@
                                                 <h5 id="prod2p"></h5>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="product-content">
+                                        <form method="get">
+                                        <div id='prod2dd'><a id="prod2d" href='javascript:void(0)'></a></div>
+                                         </form>
                                         </div>
                                     </div>
                                 </div>
@@ -246,6 +261,11 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="product-content">
+                                        <form method="get">
+                                        <div id='prod3dd'><a id="prod3d" href='javascript:void(0)'></a></div>
+                                         </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3">
@@ -261,6 +281,11 @@
                                                 <h5 id="prod4p"></h5>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="product-content">
+                                        <form method="get">
+                                        <div id='prod4dd'><a id="prod4d" href='javascript:void(0)'></a></div>
+                                         </form>
                                         </div>
                                     </div>
                                 </div>
@@ -291,6 +316,8 @@
             prod0q = document.getElementById("prod0q");
         var
             prod0p = document.getElementById("prod0p");
+            var prod0dd=document.getElementById("prod0dd");
+            var prod0d=document.getElementById("prod0d");
         var tab4 = '<?php if(isset($tab0[0]['img_url'])) echo ($tab0[0]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[0]['name'])) echo ($tab0[0]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[0]['quantity'])) echo ($tab0[0]['quantity']); else echo(""); ?>';
@@ -300,6 +327,9 @@
         prod0n.innerHTML = tab1;
         prod0q.innerHTML = 'quantity: '+tab2;
         prod0p.innerHTML = 'Price: '+tab3+' OTP';
+        prod0dd.className='product-tag';
+        prod0d.href="<?php if(isset($tab0[0]['id'])) echo ('deletemerch.php?id='.$tab0[0]['id']);?>";
+        prod0d.innerHTML="Delete";
                 }
        if (tab11!="")
        {
@@ -311,6 +341,8 @@
             prod1q = document.getElementById("prod1q");
         var
             prod1p = document.getElementById('prod1p');
+            var prod1dd=document.getElementById("prod1dd");
+            var prod1d=document.getElementById("prod1d");
         var tab4 = '<?php if(isset($tab0[1]['img_url'])) echo ($tab0[1]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[1]['name'])) echo ($tab0[1]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[1]['quantity'])) echo ($tab0[1]['quantity']); else echo(""); ?>';
@@ -320,6 +352,9 @@
         prod1n.innerHTML = tab1;
         prod1q.innerHTML = 'quantity: '+tab2;
         prod1p.innerHTML = 'Price: '+tab3+' OTP';
+        prod1dd.className='product-tag';
+        prod1d.href="<?php if(isset($tab0[1]['id'])) echo ('deletemerch.php?id='.$tab0[1]['id']);?>";
+        prod1d.innerHTML="Delete";
          } 
          if (tab22!="")
          {
@@ -331,6 +366,8 @@
             prod2q = document.getElementById("prod2q");
         var
             prod2p = document.getElementById("prod2p");
+            var prod2dd=document.getElementById("prod2dd");
+            var prod2d=document.getElementById("prod2d");
         var tab4 = '<?php if(isset($tab0[2]['img_url'])) echo ($tab0[2]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[2]['name'])) echo ($tab0[2]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[2]['quantity'])) echo ($tab0[2]['quantity']); else echo(""); ?>';
@@ -340,6 +377,9 @@
         prod2n.innerHTML = tab1;
         prod2q.innerHTML = 'quantity: '+tab2;
         prod2p.innerHTML = 'Price: '+tab3+' OTP';
+        prod2dd.className='product-tag';
+        prod2d.href="<?php if(isset($tab0[2]['id'])) echo ('deletemerch.php?id='.$tab0[2]['id']);?>";
+        prod2d.innerHTML="Delete";
          } 
          if (tab33!="")
          {
@@ -351,6 +391,8 @@
             prod3q = document.getElementById("prod3q");
         var
             prod3p = document.getElementById("prod3p");
+            var prod3dd=document.getElementById("prod3dd");
+            var prod3d=document.getElementById("prod3d");
         var tab4 = '<?php if(isset($tab0[3]['img_url'])) echo ($tab0[3]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[3]['name'])) echo ($tab0[3]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[3]['quantity'])) echo ($tab0[3]['quantity']); else echo(""); ?>';
@@ -360,6 +402,9 @@
         prod3n.innerHTML = tab1;
         prod3q.innerHTML = 'quantity: '+tab2;
         prod3p.innerHTML = 'Price: '+tab3+' OTP';
+        prod3dd.className='product-tag';
+        prod3d.href="<?php if(isset($tab0[3]['id'])) echo ('deletemerch.php?id='.$tab0[3]['id']);?>";
+        prod3d.innerHTML="Delete";
          } 
          if (tab44!="")
          {
@@ -371,6 +416,8 @@
             prod4q = document.getElementById("prod4q");
         var
             prod4p = document.getElementById('prod4p');
+            var prod4dd=document.getElementById("prod4dd");
+            var prod4d=document.getElementById("prod4d");
         var tab4 = '<?php if(isset($tab0[4]['img_url'])) echo ($tab0[4]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[4]['name'])) echo ($tab0[4]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[4]['quantity'])) echo ($tab0[4]['quantity']); else echo(""); ?>';
@@ -380,6 +427,9 @@
         prod4n.innerHTML = tab1;
         prod4q.innerHTML = 'quantity: '+tab2;
         prod4p.innerHTML = 'Price: '+tab3+' OTP';
+        prod4dd.className='product-tag';
+        prod4d.href="<?php if(isset($tab0[4]['id'])) echo ('deletemerch.php?id='.$tab0[4]['id']);?>";
+        prod4d.innerHTML="Delete";
          } 
         </script> 
         

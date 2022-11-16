@@ -38,6 +38,12 @@ public $file_name ;
         $sql="Select * FROM merch";
        return $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function delete($id)
+    {
+        $db=config::getConnexion();
+        $sql="Delete FROM merch where id='$id'";
+        $db->query($sql);
+    }
 }
 
 
