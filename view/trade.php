@@ -27,8 +27,23 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
+<!-- php section start-->
+<?php
+require "../controller/config.php";
+$connect = Config::getConnexion();
+$sql = "select * from product";
+$request1 = $connect->prepare($sql);
+$request1->execute();
+$data1 = $request1->fetchAll();
+$sql = "select * from file";
+$request2 = $connect->prepare($sql);
+$request2->execute();
+$data2 = $request2->fetchAll();
+?>
+<!-- php section end -->
 
 <body>
+
 
     <!-- preloader -->
     <div id="preloader">
@@ -196,7 +211,7 @@
                                 <br>
                                 <br>
                                 <br>
-                                <a href="postforum.html" class="btn rotated-btn">Post offer</a>
+                                <a href="oussemaform.html" class="btn rotated-btn">Post offer</a>
                             </div>
                         </div>
                     </div>
@@ -209,114 +224,38 @@
         <section class="shop-area pt-120 pb-90">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item01.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">Gaming T-Shirt</a></h5>
-                                <span>Price: $12.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item02.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">Gaming backpack</a></h5>
-                                <span>Price: $19.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item03.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">xbox one controller</a></h5>
-                                <span>Price: $14.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item04.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">Gaming T-Shirt</a></h5>
-                                <span>Price: $12.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item05.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">Gaming backpack</a></h5>
-                                <span>Price: $19.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item06.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">Joy‑Con controllers</a></h5>
-                                <span>Price: $14.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item07.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">nintendo switch</a></h5>
-                                <span>Price: $12.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item08.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">xbox one controller</a></h5>
-                                <span>Price: $19.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="accessories-item text-center mb-80">
-                            <div class="accessories-thumb mb-30">
-                                <a href="#"><img src="img/product/shop_item09.jpg" alt=""></a>
-                            </div>
-                            <div class="accessories-content">
-                                <h5><a href="#">MaxGreen 5902 Blue</a></h5>
-                                <span>Price: $14.00</span>
-                                <a href="#" class="shop-add-action">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    for ($i = 0; $i < count($data1); $i++) {
+                        if ($data1[$i]["status"] == 1) {
+                            echo " <div class='col-lg-4 col-sm-6' >
+                                    <div class='accessories-item text-center mb-80'>
+                                <div class='accessories-thumb mb-30'>
+                                    <a href='./cards.php?trade=" . $data1[$i]["id"] . "'>";
+                            foreach ($data2 as $row) {
+                                if ($row["user_id"] == $data1[$i]["id"]) {
+                                    echo '<img src="data:image;base64,' . base64_encode($row["data"]) . '" alt="image" style="width:380px; height:388px;">';
+                                    break;
+                                }
+
+                            }
+
+                            echo " </a>
+                                </div>
+                                <div class='accessories-content'>
+                                    <h5><a href='./cards.php?trade=" . $data1[$i]["id"] . "'>Trade</a>
+                                            " . $data1[$i]['name'] . "
+                                        </a></h5>
+                                    <span>Description:
+                                        " . $data1[$i]['description'] . "
+                                    </span>
+                                    <a href='./cards.php?trade=".$data1[$i]["id"]."' class='shop-add-action'>Trade</a>
+                                    </div>
+                                    </div>
+                                </div>";
+                        }
+                    }
+                    ?>
+
                 </div>
             </div>
         </section>
@@ -486,6 +425,6 @@
     <script src="js/main.js"></script>
 </body>
 
-<!-- Mirrored from themebeyond.com/html/geco/Geco/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:17 GMT -->
+
 
 </html>

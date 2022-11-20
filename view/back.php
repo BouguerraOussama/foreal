@@ -2,16 +2,18 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Backend</title>
+  <title>Backend-Trade1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="css/stylebackend.css">
-
+<link rel="stylesheet" href="./css/backstyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="video-bg">
  <video width="320" height="240" autoplay loop muted>
-  <source src="img/vid2.mp4" type="video/mp4">
+  <source src="vid2.mp4" type="video/mp4">
+Your browser does not support the video tag.
 </video>
 </div>
 <div class="dark-light">
@@ -30,7 +32,7 @@
    <div class="side-wrapper">
     <div class="side-title">Apps</div>
     <div class="side-menu">
-     <a href="#">
+     <a href="#" class="is-active">
       <svg viewBox="0 0 512 512">
        <g xmlns="http://www.w3.org/2000/svg" fill="currentColor">
         <path d="M0 0h128v128H0zm0 0M192 0h128v128H192zm0 0M384 0h128v128H384zm0 0M0 192h128v128H0zm0 0" data-original="#bfc9d1" />
@@ -38,19 +40,18 @@
        <path xmlns="http://www.w3.org/2000/svg" d="M192 192h128v128H192zm0 0" fill="currentColor" data-original="#82b1ff" />
        <path xmlns="http://www.w3.org/2000/svg" d="M384 192h128v128H384zm0 0M0 384h128v128H0zm0 0M192 384h128v128H192zm0 0M384 384h128v128H384zm0 0" fill="currentColor" data-original="#bfc9d1" />
       </svg>
-      All Apps
+      Prouct1
      </a>
-     <a href="#">
+     <a href="#" >
       <svg viewBox="0 0 488.932 488.932" fill="currentColor">
        <path d="M243.158 61.361v-57.6c0-3.2 4-4.9 6.7-2.9l118.4 87c2 1.5 2 4.4 0 5.9l-118.4 87c-2.7 2-6.7.2-6.7-2.9v-57.5c-87.8 1.4-158.1 76-152.1 165.4 5.1 76.8 67.7 139.1 144.5 144 81.4 5.2 150.6-53 163-129.9 2.3-14.3 14.7-24.7 29.2-24.7 17.9 0 31.8 15.9 29 33.5-17.4 109.7-118.5 192-235.7 178.9-98-11-176.7-89.4-187.8-187.4-14.7-128.2 84.9-237.4 209.9-238.8z" />
       </svg>
-      Updates
-      <span class="notification-number updates">3</span>
+      Product2
+      <span class="notification-number updates ">3</span>
      </a>
     </div>
    </div>
    <div class="side-wrapper">
-    <div class="side-title">Categories</div>
     <div class="side-menu">
      <a href="#">
       <svg viewBox="0 0 488.455 488.455" fill="currentColor">
@@ -145,20 +146,30 @@
    </div>
   </div>
   <div class="main-container">
-   <div class="main-header1">
-    <a class="menu-link-main" href="#">All MODULES</a>
+   <div class="main-header">
     <div class="header-menu">
-     <a class="main-header1-link is-active" href="#">Accounts</a>
-     <a class="main-header1-link" href="#">Products</a>
-     <a class="main-header1-link" href="#">Events</a>
-     <a class="main-header1-link " href="backendmerch.php">Merch</a>
-     <a class="main-header1-link" href="#">Forums</a>
-     <a class="main-header1-link" href="#">Reports</a>
+     <a class="main-header-link " href="#">Accounts</a>
+     <a class="main-header-link is-active" href="#">Products</a>
+     <a class="main-header-link" href="#">Events</a>
+     <a class="main-header-link " href="#">Merch</a>
+     <a class="main-header-link" href="#">Forums</a>
+     <a class="main-header-link" href="#">Reports</a>
 
     </div>
    </div>
    <div class="content-wrapper">
 
+  <?php
+   require "../model/p1.php";
+   //table product variables
+   $product1 = new Product1();
+   $product1->showAdminProduct1();
+     ?>
+  <!-- <form action="../controller/gestion.php" method="post">
+    <input type="number" name="catcher" id="catcher"><br>
+    <input type="submit" name="accept" value="accept">
+    <input type="submit" name="reject" value="reject">
+  </form> -->
 
 
  
@@ -168,7 +179,7 @@
  <div class="overlay-app"></div>
 </div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="js/script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./js/backscript.js"></script>
 
 </body>
 </html>

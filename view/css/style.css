@@ -501,7 +501,7 @@ ul.minicart .cart-content a:hover,
 .product-cart-action a,
 .blog-meta ul li i,
 .testi-avatar-info span,
-.features-item .features-list-content .product-tag a .product-tag,
+.features-item .features-list-content .product-tag a,
 .features-list-content h6 a:hover,
 .newsletter-form-grp i,
 .newsletter-form button:hover,
@@ -1291,6 +1291,7 @@ ul.minicart .cart-price .new {
 	z-index: 2;
 }
 
+
 .btn,
 .header-user-login>a i,
 .navbar-wrap ul li a::before,
@@ -1320,6 +1321,7 @@ ul.minicart .cart-price .new {
 	background-position: center;
 	background-size: cover;
 }
+
 .breadcrumb-bg1 {
 	background-image: url(../img/slider/slider_bg.jpg);
 	padding-top: 275px;
@@ -1327,6 +1329,7 @@ ul.minicart .cart-price .new {
 	background-position: center;
 	background-size: cover;
 }
+
 .breadcrumb-bg2 {
 	background-image: url(../img/bg/streaming_bg02.jpg);
 	padding-top: 275px;
@@ -1334,6 +1337,7 @@ ul.minicart .cart-price .new {
 	background-position: center;
 	background-size: cover;
 }
+
 .breadcrumb-bg3 {
 	background-image: url(../img/bg/cta_bg.jpg);
 	padding-top: 275px;
@@ -2309,7 +2313,7 @@ ul.minicart .cart-price .new {
 .live-match-time>span {
 	display: block;
 	max-width: 264px;
-	background: #e8a301;
+	background: rgb(54, 169, 225);
 	color: #fff;
 	text-transform: uppercase;
 	padding: 4px 20px;
@@ -2396,6 +2400,18 @@ ul.minicart .cart-price .new {
 	z-index: 1;
 	padding: 20px 20px 20px;
 	margin: 50px 0;
+}
+
+#myForm {
+	display: none;
+	align-items: center;
+	background: #fff;
+	box-shadow: 0px 1px 13px 0px rgba(128, 18, 40, 0.1);
+	position: relative;
+	z-index: 1;
+	padding: 20px 20px 20px;
+	margin: 50px 0;
+	justify-content: center;
 }
 
 .released-game-img {
@@ -2740,7 +2756,7 @@ ul.minicart .cart-price .new {
 .featured-game-meta i {
 	color: rgb(54, 169, 225);
 
-	
+
 }
 
 .featured-game-content h4 a:hover {
@@ -3044,7 +3060,7 @@ ul.minicart .cart-price .new {
 }
 
 .team-member-box:hover .team-member-content h4 a {
-	color: #e8a301;
+	color: rgb(54, 169, 225);
 }
 
 .team-member-box:hover .team-member-thumb img {
@@ -3647,7 +3663,7 @@ ul.minicart .cart-price .new {
 	display: block;
 	font-size: 12px;
 	font-weight: 600;
-	color: #e8a301;
+	color: rgb(54, 169, 225);
 	font-family: 'Oxanium', cursive;
 	margin-bottom: 6px;
 }
@@ -3803,7 +3819,7 @@ ul.minicart .cart-price .new {
 
 .game-single-content .uc-game-head-title h4>span,
 .game-single-title h4 span {
-	color: #e8a301;
+	color: rgb(54, 169, 225);
 }
 
 .game-single-content .uc-game-head-title>span {
@@ -7849,9 +7865,11 @@ ul.minicart .cart-price .new {
 .home-six-footer .copyright-wrap {
 	padding: 31px 0;
 }
-.logoh{
+
+.logoh {
 	width: 200px;
 }
-.logof{
-width: 80%;
+
+.logof {
+	width: 80%;
 }
