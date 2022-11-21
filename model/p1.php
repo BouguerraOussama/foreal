@@ -10,7 +10,6 @@ class Product1
       $sql = "INSERT INTO product ( category, name, description) VALUES (?, ?, ?)";
       $request = $connect->prepare($sql);
       $request->execute(array($text["category"], $text["name"], $text["description"]));
-
       $id = $connect->lastInsertId();
       //insert into table images 
       $p = count($data['image1']['name']);
@@ -43,36 +42,37 @@ class Product1
     <th>Images</th>
     </tr>");
     foreach ($data1 as $row) {
-      echo ("<tr>
-    <td>" . $row['id'] . "</td>
-    <td>" . $row['category'] . "</td>
-    <td>" . $row['name'] . "</td>
-    <td>" . $row['description'] . "</td><td>");
-      switch ($row['status']) {
-        case 0:
-          echo "Status: On hold";
-          echo "<div class='side-menu'>";
-          echo " <a href='../controller/gestion.php?accepted=" . $row["id"] . "'>accept</a>";
-          echo " <a href='../controller/gestion.php?rejected=" . $row["id"] . "'>reject</a>";
-          echo "</div >";
-
-          break;
-        case 1:
-          echo "Status: approved";
-          echo "<div class='side-menu'>";
-          echo " <a href='../controller/gestion.php?rejected=" . $row["id"] . "'>reject</a>";
-          echo "</div >"; 
-          break;
-        case 2:
-          echo "Status: rejected";
-          break;
+      if ($row['status'] < 3) {
+        echo ("<tr>
+        <td>" . $row['id'] . "</td>
+        <td>" . $row['category'] . "</td>
+        <td>" . $row['name'] . "</td>
+        <td>" . $row['description'] . "</td><td>");
+        switch ($row['status']) {
+          case 0:
+            echo "Status: On hold";
+            echo "<div class='side-menu'>";
+            echo " <a href='../controller/gestion.php?accepted=" . $row["id"] . "'>accept</a>";
+            echo " <a href='../controller/gestion.php?rejected=" . $row["id"] . "'>reject</a>";
+            echo "</div >";
+            break;
+          case 1:
+            echo "Status: approved/ Trade done";
+            echo "<div class='side-menu'>";
+            echo " <a href='../controller/gestion.php?rejected=" . $row["id"] . "'>reject</a>";
+            echo "</div >";
+            break;
+          case 2:
+            echo "Status: rejected";
+            break;
+        }
+        echo " </td><td>";
+        foreach ($data2 as $row1) {
+          if ($row1["user_id"] == $row["id"])
+            echo '<img src="data:image;base64,' . base64_encode($row1['data']) . '" alt="image" style="width:100px;">';
+        }
+        echo "</td></tr>";
       }
-      echo " </td><td>";
-      foreach ($data2 as $row1) {
-        if ($row1["user_id"] == $row["id"])
-          echo '<img src="data:image;base64,' . base64_encode($row1['data']) . '" alt="image" style="width:100px;">';
-      }
-      echo "</td></tr>";
     }
   }
   public function AdminGestionProduit($accept, $reject)

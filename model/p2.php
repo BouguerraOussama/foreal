@@ -1,7 +1,9 @@
 <?php
 require "../controller/config.php";
-class Product2{
- public function ReturnProduct1Detailed(){
+class Product2
+{
+ public function ReturnProduct1Detailed()
+ {
   $connect = Config::getConnexion();
   $sql = "select * from product";
   $request1 = $connect->prepare($sql);
@@ -14,10 +16,10 @@ class Product2{
   foreach ($data1 as $row) {
    $i = 1;
    if ($row["id"] == $_GET["trade"]) {
-    $product1[0]=$row;
-    foreach($data2 as $row1){
-     if ($row1["user_id"]==$_GET["trade"]){
-      $product1[$i]=$row1;
+    $product1[0] = $row;
+    foreach ($data2 as $row1) {
+     if ($row1["user_id"] == $_GET["trade"]) {
+      $product1[$i] = $row1;
       $i++;
      }
     }
@@ -25,6 +27,141 @@ class Product2{
   }
   // return a table[0]=>id/category/product... table[i]=>id_image/image...
   return $product1;
+ }
+ public function addProduct2($text, $data, $id2)
+ {
+  if (isset($text['submit']) && count($data['image1']['name']) > 0) {
+   $connect = Config::getConnexion();
+   //insert into table product2
+   $sql = "INSERT INTO product2 ( category, name, description,status,id_product) VALUES (?, ?, ?, ?, ?)";
+   $request = $connect->prepare($sql);
+   $request->execute(array($text["category"], $text["name"], $text["description"], 0, $id2));
+   $id = $connect->lastInsertId();
+   //insert into table images 
+   $p = count($data['image1']['name']);
+   for ($i = 0; $i < $p; $i++) {
+    $sql = "INSERT INTO file2 (file_name, file_type, data,user_id) VALUES (?,?,?,?);";
+    $request = $connect->prepare($sql);
+    $request->execute(array($data['image1']['name'][$i], $data['image1']['type'][$i], file_get_contents($data['image1']['tmp_name'][$i]), $id));
+   }
+   //set status of table 1 to 3
+   $sql = "UPDATE product SET status = 3 WHERE product.id = ?";
+   $request = $connect->prepare($sql);
+   $request->execute(array($id2));
+  }
+  header("location:../view/trade.php");
+ }
+ public function showAdminProduct2()
+ {
+  $connect = Config::getConnexion();
+  $sql = "select * from product2";
+  $request1 = $connect->prepare($sql);
+  $request1->execute();
+  $data1 = $request1->fetchAll();
+  $sql = "select * from file2";
+  $request2 = $connect->prepare($sql);
+  $request2->execute();
+  $data2 = $request2->fetchAll();
+  //table product1
+  $sql = "select * from product";
+  $request3 = $connect->prepare($sql);
+  $request3->execute();
+  $data3 = $request3->fetchAll();
+  $sql = "select * from file";
+  $request4 = $connect->prepare($sql);
+  $request4->execute();
+  $data4 = $request4->fetchAll();
+  ///
+  
+  foreach ($data1 as $row) {
+   echo ("<table border='1px solid' align='center'>
+    <tr>
+    <th>ID Product2</th>
+    <th>category of product2</th>
+    <th> product2 name</th>
+    <th>product2 description</th>
+    <th>Images</th>
+    <th>Status</th>
+    </tr>");
+   echo "<tr>
+        <td>" . $row['id'] . "</td>
+        <td>" . $row['category'] . "</td>
+        <td>" . $row['name'] . "</td>
+        <td>" . $row['description'] . "</td>";
+   echo " <td>";
+   foreach ($data2 as $row1) {
+    if ($row1["user_id"] == $row["id"])
+     echo '<img src="data:image;base64,' . base64_encode($row1['data']) . '" alt="image" style="width:100px;">';
+   }
+   echo "</td><td rowspan=4>";
+   switch ($row['status']) {
+    case 0:
+     echo " Status:This offer is Waiting for confirmation";
+     echo "<div class='side-menu'>";
+     echo " <a href='../controller/gestion2.php?accepted=" . $row["id"] . "'>accept</a>";
+     echo " <a href='../controller/gestion2.php?rejected=" . $row["id"] . "'>reject</a>";
+     echo "</div >";
+     break;
+    case 1:
+     echo "Status: Trade On going";
+     echo "<div class='side-menu'>";
+     echo " <a href='../controller/gestion2.php?accepted=" . $row["id"] . "'>accept</a>";
+     echo " <a href='../controller/gestion2.php?rejected=" . $row["id"] . "'>reject</a>";
+     
+     echo "</div >";
+     break;
+    case 2:
+     echo "Status: rejected";
+     break;
+   }
+   echo "</td></tr>";
+
+   ///afficher table1
+   echo "
+   <tr>Trades between</tr>
+    <tr>
+    <th>ID Product</th>
+    <th>category of product</th>
+    <th> product name</th>
+    <th>product description</th>
+    <th>Images</th>
+   
+    </tr>";
+   foreach ($data3 as $row3) {
+    if ($row3['id'] == $row['id_product']) {
+     echo ("<tr >
+        <td>" . $row3['id'] . "</td>
+        <td>" . $row3['category'] . "</td>
+        <td>" . $row3['name'] . "</td>
+        <td>" . $row['description'] . "</td>");
+
+     echo " <td>";
+     foreach ($data4 as $row4) {
+      if ($row4["user_id"] == $row3["id"])
+       echo '<img src="data:image;base64,' . base64_encode($row4['data']) . '" alt="image" style="width:100px;">';
+     }
+     echo "</td>";
+     echo"</tr></table><br><br>";
+    }
+   }
+  }
+ }
+ public function AdminGestionProduit($accept, $reject,$sessionid)
+ {
+
+  $connect = Config::getConnexion();
+  if ($accept == NULL && $reject != null) {
+   $sql = "DELETE FROM product2 WHERE id = '$reject'";
+   $request = $connect->prepare($sql);
+   $request->execute();
+   header("location:../view/back.php");
+  }
+  if ($accept != NULL && $reject == null) {
+   $sql = "UPDATE product SET status = '1' WHERE id = '$accept';";
+   $request = $connect->prepare($sql);
+   $request->execute();
+   header("location:../view/back.php");
+  }
  }
 }
 ?>

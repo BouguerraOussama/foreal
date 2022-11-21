@@ -16,7 +16,8 @@
 require "../model/p2.php";
 $prod = new Product2();
 $itemSelected = $prod->ReturnProduct1Detailed();
-
+session_start();
+$_SESSION["id"]= $itemSelected[0]["id"];
 ?>
 
 <body>
@@ -37,7 +38,7 @@ $itemSelected = $prod->ReturnProduct1Detailed();
       </div>
       <div style="margin-left: 250px;">
          <h4 style="margin-bottom:20px;">like this item?</h4>
-         <a href="oussemaform.html" class="btn btn-style-two" style="text-decoration: none;">Trade Now</a>
+       <a href='oussemaform2.html' class='btn btn-style-two' style='text-decoration: none;'>Trade Now</a>
       </div>
    </div>
 

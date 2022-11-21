@@ -226,7 +226,7 @@ $data2 = $request2->fetchAll();
                 <div class="row">
                     <?php
                     for ($i = 0; $i < count($data1); $i++) {
-                        if ($data1[$i]["status"] == 1) {
+                        if ($data1[$i]["status"] >= 1) {
                             echo " <div class='col-lg-4 col-sm-6' >
                                     <div class='accessories-item text-center mb-80'>
                                 <div class='accessories-thumb mb-30'>
