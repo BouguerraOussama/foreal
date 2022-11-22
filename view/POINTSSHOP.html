@@ -31,13 +31,13 @@
 <body>
 
     <!-- preloader -->
-    <div id="preloader">
+     <div id="preloader">
         <div id="loading-center">
             <div id="loading-center-absolute">
                 <img src="img/icon/o.gif" alt="">
             </div>
         </div>
-    </div>
+    </div> 
     <!-- preloader-end -->
 
     <!-- header-area -->
@@ -96,13 +96,9 @@
                                         <!-- <li><a href="#">Pages</a></li> -->
                                         <!-- <li><a href="game-overview.html">Overview</a></li> -->
                                         <!-- <li><a href="community.html">Community</a></li> -->
-                                        <li><a href="trade.php">Trade</a></li>
+                                        <li><a href="trade.html">Trade</a></li>
                                         <li><a href="Auction.html">Auction</a>
-                                        <li class="show"><a href="trade.php">Trade</a>
-                                            <ul class="submenu">
-                                                <li><a href="OnGoingTrades.html">My ongoing trades</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="show"><a href="#">POINTS SHOP</a></li>
                                         <li><a href="forums.html">FORUM</a></li>
                                         <!-- <ul class="submenu">
                                                         <li><a href="blog.html">News Page</a></li>
@@ -126,7 +122,7 @@
                                                     </div>
                                                     <div class="cart-content">
                                                         <h4>
-                                                            <a href="#">Xbox One Controller</a>
+                                                            <a href="javascript:void(0)">Xbox One Controller</a>
                                                         </h4>
                                                         <div class="cart-price">
                                                             <span class="new">$229.9</span>
@@ -149,50 +145,16 @@
                                                 </li>
                                                 <li>
                                                     <div class="checkout-link">
-                                                        <a href="cart.html">Shopping Cart</a>
                                                         <a class="red-color" href="checkout.html">Checkout</a>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="header-shop-cart"><a href="#"><i class="fas fa-shopping-basket"
-                                                    style="color:rgb(54, 169, 225);"></i><span>0</span></a>
-                                            <ul class="minicart">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="cart-img">
-                                                        <a href="#">
-                                                            <img src="img/product/cart_p01.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h4>
-                                                            <a href="#">Xbox One Controller</a>
-                                                        </h4>
-                                                        <div class="cart-price">
-                                                            <span class="new">$229.9</span>
-                                                            <span>
-                                                                <del>$229.9</del>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="del-icon">
-                                                        <a href="#">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="total-price">
-                                                        <span class="f-left">Total:</span>
-                                                        <span class="f-right">$239.9</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="checkout-link">
-                                                        <a href="cart.html">Shopping Cart</a>
-                                                        <a class="red-color" href="checkout.html">Checkout</a>
-                                                    </div>
-                                                </li>
+                                                    style="color:rgb(54, 169, 225);"></i><span id='qofbasket'>0</span></a>
+                                            <ul id='shopcart' class="minicart">
+                                                
+                                                
                                             </ul>
                                         </li>
                                         <li class="header-search"><a href="#" data-toggle="modal"
@@ -254,21 +216,68 @@
                     </div>
                 </div>
                 <div class="row product-active">
+                     <div class="col-xl-3">
+                        <div class="shop-item">
+                            <div class="product-thumb">
+                            <a><img id="prod0" src=""></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-tag"><a id="prod0n" href="javascript:void(0)">NOTHING HERE</a></div>
+                                <div class="product-meta">
+                                    <div class="product-price">
+                                                    <h5 id="prod00q"></h5><h4 id="prod0q"></h4>
+                                                    <h5 id="prod00p"></h5><h4 id="prod0p"></h4>
+                                                    <h5 id="prod00des"></h5><h4 id="prod0des"></h4>
+                                    </div>
+                                    <form method="get">
+                                    <div id="prod00basket"> <!-- class="product-cart-action" -->
+                                          <a id='basket0' href="javascript:void(0)"><i id="prod0basket" ></i></a> <!--class="fas fa-shopping-basket" -->
+                                    </div>
+                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                       <div class="col-xl-3">
+                        <div class="shop-item">
+                            <div class="product-thumb">
+                            <a><img id="prod1" src=""></a>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-tag"><a id="prod1n" href="javascript:void(0)">NOTHING HERE</a></div>
+                                <div class="product-meta">
+                                    <div class="product-price">
+                                                    <h5 id="prod11q"></h5><h4 id="prod1q"></h4> 
+                                                    <h5 id="prod11p"></h5><h4 id="prod1p"></h4> 
+                                                    <h5 id="prod11des"></h5><h4 id="prod1des"></h4> 
+                                    </div>
+                                    <form method='get'>
+                                    <div id="prod11basket"> <!-- class="product-cart-action" -->
+                                          <a id='basket1' href="javascript:void(0)"><i id="prod1basket" ></i></a> <!--class="fas fa-shopping-basket" -->
+                                    </div>
+                                   </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
                     <div class="col-xl-3">
                         <div class="shop-item">
                             <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img01.jpg" alt=""></a>
+                            <a><img id="prod2" src=""></a>
                             </div>
                             <div class="product-content">
-                                <div class="product-tag"><a href="#">t-shirt</a></div>
-                                <h4><a href="#">Women Black T-shirt</a></h4>
+                                <div class="product-tag"><a id="prod2n" href="javascript:void(0)">NOTHING HERE</a></div>
                                 <div class="product-meta">
                                     <div class="product-price">
-                                        <h5>2000 OTP</h5>
+                                                <h5 id="prod22q"></h5><h4 id="prod2q"></h4> 
+                                                <h5 id="prod22p"></h5><h4 id="prod2p"></h4> 
+                                                <h5 id="prod22des"></h5><h4 id="prod2des"></h4> 
                                     </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                    <form method='get'>
+                                    <div id="prod22basket"> <!-- class="product-cart-action" -->
+                                    <a id='basket2' href="javascript:void(0)"><i id="prod2basket" ></i></a> <!--class="fas fa-shopping-basket" -->
                                     </div>
+                                     </form>
                                 </div>
                             </div>
                         </div>
@@ -276,18 +285,21 @@
                     <div class="col-xl-3">
                         <div class="shop-item">
                             <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img02.jpg" alt=""></a>
+                            <a><img id="prod3" src=""></a>
                             </div>
                             <div class="product-content">
-                                <div class="product-tag"><a href="#">x-box</a></div>
-                                <h4><a href="#">Gears 5 Xbox Controller</a></h4>
+                                <div class="product-tag"><a id="prod3n" href="javascript:void(0)">NOTHING HERE</a></div>
                                 <div class="product-meta">
                                     <div class="product-price">
-                                        <h5>Dt29.00</h5>
+                                                    <h5 id="prod33q"></h5><h4 id="prod3q"></h4> 
+                                                    <h5 id="prod33p"></h5><h4 id="prod3p"></h4> 
+                                                    <h5 id="prod33des"></h5><h4 id="prod3des"></h4> 
                                     </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                    <form method='get'>
+                                    <div id="prod33basket"> <!-- class="product-cart-action" -->
+                                          <a id='basket3' href="javascript:void(0)"><i id="prod3basket" ></i></a> <!--class="fas fa-shopping-basket" -->
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -295,56 +307,21 @@
                     <div class="col-xl-3">
                         <div class="shop-item">
                             <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img03.jpg" alt=""></a>
+                            <a><img id="prod4" src=""></a>
                             </div>
                             <div class="product-content">
-                                <div class="product-tag"><a href="#">graphics</a></div>
-                                <h4><a href="#">GeForce RTX 2070</a></h4>
+                                <div class="product-tag"><a id="prod4n" href="javascript:void(0)">NOTHING HERE</a></div>
                                 <div class="product-meta">
                                     <div class="product-price">
-                                        <h5>2900000 OTP</h5>
+                                                   <h5 id="prod44q"></h5><h4 id="prod4q"></h4> 
+                                                   <h5 id="prod44p"></h5><h4 id="prod4p"></h4> 
+                                                   <h5 id="prod44des"></h5><h4 id="prod4des"></h4> 
                                     </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                    <form method='get'>
+                                    <div id="prod44basket"> <!-- class="product-cart-action" -->
+                                          <a id='basket4' href="javascript:void(0)"><i id="prod4basket" ></i></a> <!--class="fas fa-shopping-basket" -->
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="shop-item">
-                            <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img04.jpg" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-tag"><a href="#">VR-Box</a></div>
-                                <h4><a href="#">Virtual Reality Smiled</a></h4>
-                                <div class="product-meta">
-                                    <div class="product-price">
-                                        <h5>Dt29.00</h5>
-                                    </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="shop-item">
-                            <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img04.jpg" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-tag"><a href="#">VR-Box</a></div>
-                                <h4><a href="#">Virtual Reality Smiled</a></h4>
-                                <div class="product-meta">
-                                    <div class="product-price">
-                                        <h5>Dt29.00</h5>
-                                    </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                    </div>
+                                     </form>
                                 </div>
                             </div>
                         </div>
@@ -490,6 +467,298 @@
             </div>
         </div>
     </footer>
+
+    <!-- PHP HERE -->
+    <?php
+    error_reporting(E_ERROR | E_PARSE);
+    session_start();
+    require '../controller/merch.php';
+        $tab=new merch;
+       $tab0 = $tab->affiche();
+       $id=1;
+       $paniershow=new panier;
+       $product=$paniershow->showbasket($id);
+       $length=count($product);
+     ?>
+     <!-- Script for merch -->
+     <script language='Javascript'>
+        var tab00="<?php if(isset($tab0[0]['id'])) echo ($tab0[0]['id']); else echo("");?>";
+        var tab11="<?php if(isset($tab0[1]['id'])) echo ($tab0[1]['id']); else echo("");?>";
+        var tab22="<?php if(isset($tab0[2]['id'])) echo ($tab0[2]['id']); else echo("");?>";
+        var tab33="<?php if(isset($tab0[3]['id'])) echo ($tab0[3]['id']); else echo("");?>";
+        var tab44="<?php if(isset($tab0[4]['id'])) echo ($tab0[4]['id']); else echo("");?>";
+                if(tab00!="")
+                {
+                    var
+            prod0 = document.getElementById("prod0");
+        var
+            prod0n = document.getElementById("prod0n");
+        var
+            prod0q = document.getElementById("prod0q");
+        var
+            prod0p = document.getElementById("prod0p");
+            var prod00q=document.getElementById('prod00q');
+        var prod00p=document.getElementById('prod00p');
+        var 
+        prod0des= document.getElementById('prod0des');
+        var
+        prod00des=document.getElementById('prod00des');
+            var prod00basket=document.getElementById("prod00basket");
+            var prod0basket=document.getElementById("prod0basket");
+            var basket0=document.getElementById("basket0");
+        var tab4 = '<?php if(isset($tab0[0]['img_url'])) echo ($tab0[0]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[0]['name'])) echo ($tab0[0]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[0]['quantity'])) echo ($tab0[0]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[0]['price'])) echo ($tab0[0]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[0]['description'])) echo ($tab0[0]['description']); else echo(""); ?>';
+        prod0.src= tab4;
+        prod0n.innerHTML = tab1;
+        prod00q.innerHTML = 'quantity: ';
+        prod0q.innerHTML=tab2;
+        prod00p.innerHTML = 'Price: ';
+        prod0p.innerHTML =tab3+' OTP';
+        prod00des.innerHTML='Description:';
+        prod0des.innerHTML=tab5;
+         prod00basket.className="product-cart-action";
+         prod0basket.className="fas fa-shopping-basket";
+         basket0.addEventListener("click", function(){
+            basket0.href="../model/addpanier.php?id="+tab00;
+         });
+                }
+                if (tab11!="")
+       {
+        var
+            prod1 = document.getElementById("prod1");
+        var
+            prod1n = document.getElementById("prod1n");
+        var
+            prod1q = document.getElementById("prod1q");
+        var
+            prod1p = document.getElementById('prod1p');
+            var 
+        prod1des= document.getElementById('prod1des');
+        var
+        prod11des=document.getElementById('prod11des');
+        var prod11q=document.getElementById('prod11q');
+        var prod11p=document.getElementById('prod11p');
+            var prod11basket=document.getElementById("prod11basket");
+            var prod1basket=document.getElementById("prod1basket");
+            var basket1=document.getElementById("basket1");
+        var tab4 = '<?php if(isset($tab0[1]['img_url'])) echo ($tab0[1]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[1]['name'])) echo ($tab0[1]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[1]['quantity'])) echo ($tab0[1]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[1]['price'])) echo ($tab0[1]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[1]['description'])) echo ($tab0[1]['description']); else echo(""); ?>';
+        prod1.src= tab4;
+        prod1n.innerHTML = tab1;
+        prod11q.innerHTML = 'quantity: ';
+        prod1q.innerHTML=tab2;
+        prod11p.innerHTML = 'Price: ';
+        prod1p.innerHTML =tab3+' OTP';
+        prod11des.innerHTML='Description:';
+        prod1des.innerHTML=tab5;
+        prod11basket.className="product-cart-action";
+         prod1basket.className="fas fa-shopping-basket";
+         basket1.addEventListener("click", function(){
+            basket1.href="../model/addpanier.php?id="+tab11;
+         });
+         } 
+         if (tab22!="")
+         {
+            var
+            prod2 = document.getElementById("prod2");
+        var
+            prod2n = document.getElementById("prod2n");
+        var
+            prod2q = document.getElementById("prod2q");
+        var
+            prod2p = document.getElementById("prod2p");
+            var 
+        prod2des= document.getElementById('prod2des');
+        var
+        prod22des=document.getElementById('prod22des');
+            var prod22q=document.getElementById('prod22q');
+        var prod22p=document.getElementById('prod22p');
+            var prod22basket=document.getElementById("prod22basket");
+            var prod2basket=document.getElementById("prod2basket");
+            var basket2=document.getElementById("basket2");
+        var tab4 = '<?php if(isset($tab0[2]['img_url'])) echo ($tab0[2]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[2]['name'])) echo ($tab0[2]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[2]['quantity'])) echo ($tab0[2]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[2]['price'])) echo ($tab0[2]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[2]['description'])) echo ($tab0[2]['description']); else echo(""); ?>';
+        prod2.src= tab4;
+        prod2n.innerHTML = tab1;
+        prod22q.innerHTML = 'quantity: ';
+        prod2q.innerHTML=tab2;
+        prod22p.innerHTML = 'Price: ';
+        prod2p.innerHTML =tab3+' OTP';
+        prod22des.innerHTML='Description:';
+        prod2des.innerHTML=tab5;
+        prod22basket.className="product-cart-action";
+         prod2basket.className="fas fa-shopping-basket";
+         basket2.addEventListener("click", function(){
+            basket2.href="../model/addpanier.php?id="+tab22;
+         });
+         }
+         if (tab33!="")
+         {
+            var
+            prod3 = document.getElementById("prod3");
+        var
+            prod3n = document.getElementById("prod3n");
+        var
+            prod3q = document.getElementById("prod3q");
+        var
+            prod3p = document.getElementById("prod3p");
+            var 
+        prod3des= document.getElementById('prod3des');
+        var
+        prod33des=document.getElementById('prod33des');
+            var prod33q=document.getElementById('prod33q');
+        var prod33p=document.getElementById('prod33p');
+            var prod33basket=document.getElementById("prod33basket");
+            var prod3basket=document.getElementById("prod3basket");
+            var basket3=document.getElementById("basket3");
+        var tab4 = '<?php if(isset($tab0[3]['img_url'])) echo ($tab0[3]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[3]['name'])) echo ($tab0[3]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[3]['quantity'])) echo ($tab0[3]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[3]['price'])) echo ($tab0[3]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[3]['description'])) echo ($tab0[3]['description']); else echo(""); ?>';
+        prod3.src= tab4;
+        prod3n.innerHTML = tab1;
+        prod33q.innerHTML = 'quantity: ';
+        prod3q.innerHTML=tab2;
+        prod33p.innerHTML = 'Price: ';
+        prod3p.innerHTML =tab3+' OTP';
+        prod33des.innerHTML='Description:';
+        prod3des.innerHTML=tab5;
+        prod33basket.className="product-cart-action";
+         prod3basket.className="fas fa-shopping-basket";
+         basket3.addEventListener("click", function(){
+            basket3.href="../model/addpanier.php?id="+tab33;
+         });
+         }
+         if (tab44!="")
+         {
+            var
+            prod4 = document.getElementById("prod4");
+        var
+            prod4n = document.getElementById("prod4n");
+        var
+            prod4q = document.getElementById("prod4q");
+        var
+            prod4p = document.getElementById('prod4p');
+        var 
+        prod4des= document.getElementById('prod4des');
+        var
+        prod44des=document.getElementById('prod44des');
+            var prod44q=document.getElementById('prod44q');
+        var prod44p=document.getElementById('prod44p');
+            var prod44basket=document.getElementById("prod44basket");
+            var prod4basket=document.getElementById("prod4basket");
+            var basket4=document.getElementById("basket4");
+        var tab4 = '<?php if(isset($tab0[4]['img_url'])) echo ($tab0[4]['img_url']); else echo(""); ?>';
+        var tab1 = '<?php if(isset($tab0[4]['name'])) echo ($tab0[4]['name']); else echo(""); ?>';
+        var tab2 = '<?php if(isset($tab0[4]['quantity'])) echo ($tab0[4]['quantity']); else echo(""); ?>';
+        var tab3 = '<?php if(isset($tab0[4]['price'])) echo ($tab0[4]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[4]['description'])) echo ($tab0[4]['description']); else echo(""); ?>';
+        prod44basket.className="product-cart-action";
+         prod4basket.className="fas fa-shopping-basket";
+         basket4.addEventListener("click", function(){
+            basket4.href="../model/addpanier.php?id="+tab44;
+         });
+         }
+                </script>
+                <!-- END SCRIPT FOR MERCH -->
+        <!-- Script for basket -->
+                 <script>
+                    var length="<?php if($length!=0) echo $length; else echo("") ?>";
+                    var max=0;
+                    var qbas=0;
+                    product=<?php if($length!=0) echo (json_encode($product));?>;
+                    if(length!="")
+                {
+                    shopcart=document.getElementById("shopcart");
+                    for(var i=0;i<length;i++)
+                    {
+                        const li=document.createElement("li");
+                        li.className="d-flex align-items-start";
+                        shopcart.appendChild(li);
+                       const div1=document.createElement("div");
+                        div1.className="cart-img";
+                        li.appendChild(div1);
+                        const img=document.createElement("img");
+                        img.src=product[i][0];
+                        div1.appendChild(img);
+                        const div2=document.createElement("div");
+                        div2.className="cart-content";
+                        li.appendChild(div2);
+                        const h4=document.createElement("h4");
+                        div2.appendChild(h4);
+                        const p=document.createElement("p");
+                        h4.appendChild(p);
+                        p.innerHTML=product[i][1];
+                        const div3=document.createElement("div");
+                        div3.className="cart-price";
+                        div2.appendChild(div3);
+                        const span=document.createElement("span");
+                        span.className="new";
+                        span.innerHTML="QTE: "+product[i][3];
+                        div3.appendChild(span);
+                        const div4=document.createElement("div");
+                        div4.className="cart-price";
+                        div2.appendChild(div4);
+                        const span1=document.createElement("span");
+                        span1.className="new";
+                        span1.innerHTML="PRICE: "+product[i][2];
+                        div4.appendChild(span1);
+                        const div5=document.createElement("div");
+                        div5.className="del-icon";
+                        li.appendChild(div5);
+                        const form=document.createElement("form");
+                        form.method="POST";
+                        div5.appendChild(form);
+                        const a=document.createElement("a");
+                            a.href="../model/deletepanier.php?id_prod="+product[i][5];
+                          form.appendChild(a);
+                        const ii=document.createElement("i");
+                        ii.className="far fa-trash-alt";
+                        ii.style.color="rgb(54, 169, 225)";
+                        a.appendChild(ii);
+                        max=max+(product[i][2]*product[i][3]);
+                        qbas=qbas+product[i][3];
+                    }
+                }
+                const qofbasket=document.getElementById('qofbasket');
+                 qofbasket.innerHTML=qbas;
+                const li2=document.createElement("li");
+                            shopcart.appendChild(li2);
+                     const div6=document.createElement("div");
+                           div6.className="total-price";
+                           li2.appendChild(div6);
+                     const span2=document.createElement("span");
+                           span2.className="f-left";
+                           span2.innerHTML="TOTAL:";
+                     const span3=document.createElement("span");
+                           span3.className="f-right";
+                           span3.setAttribute("id","total");
+                           div6.appendChild(span2);
+                           div6.appendChild(span3);
+                       var total=document.getElementById('total');
+                       total.innerHTML=max+' OTP';
+                       const li3=document.createElement("li");
+                            shopcart.appendChild(li3);
+                       const div7=document.createElement("div");
+                             div7.className="checkout-link";
+                             li3.appendChild(div7);
+                       const a2=document.createElement("a");
+                            a2.className="red-color";
+                            a2.href="javascript:void(0)";
+                            a2.innerHTML="Checkout";
+                            div7.appendChild(a2);
+                    </script>
+                    <!-- END SCRIPT FOR BASKET -->
     <!-- footer-area-end -->
     <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="js/vendor/jquery-3.4.1.min.js"></script>
