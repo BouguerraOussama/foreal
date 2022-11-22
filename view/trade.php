@@ -232,7 +232,7 @@ $data2 = $request2->fetchAll();
                                 <div class='accessories-thumb mb-30'>
                                     <a href='./cards.php?trade=" . $data1[$i]["id"] . "'>";
                             foreach ($data2 as $row) {
-                                if ($row["user_id"] == $data1[$i]["id"]) {
+                                if ($row["product_id"] == $data1[$i]["id"]) {
                                     echo '<img src="data:image;base64,' . base64_encode($row["data"]) . '" alt="image" style="width:380px; height:388px;">';
                                     break;
                                 }
