@@ -169,7 +169,7 @@
 
     </div>
    </div>
-   <div class="content-wrapper">
+   <div class="content-wrapper" >
    <main>
         <!-- slider-area -->
         <div class="container custom-container">
@@ -177,13 +177,14 @@
                     <section class="shop-area black-bg pt-115 pb-90" style="display:contents">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-xl-6 col-lg-8">
+                                <div class="col-xl-6 col-lg-8" style='margin-left:-25px;'>
                                     <div class="section-title title-style-three white-title text-center mb-40">
                                         <h2>Our <span>PointsShop</span></h2>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row product-active">
+                            <div class="row product-active" style="margin-right:-340px;">
+                                
                                 <div class="col-xl-3" style="margin-bottom:30px">
                                     <div class="shop-item">
                                         <div class="product-thumb">
@@ -191,10 +192,11 @@
                                         </div>
                                         <div class="product-content">
                                         <div class="product-tag"><a id="prod0n" href="addshop.php">ADD TO MERCH</a></div>
-                                            <h4 id="prod0q"></h4>
-                                            <div class="product-meta">
+                                        <div class="product-meta">
                                                 <div class="product-price">
-                                                    <h5 id="prod0p"></h5>
+                                                    <h5 id="prod00q"></h5><h4 id="prod0q"></h4>
+                                                    <h5 id="prod00p"></h5><h4 id="prod0p"></h4>
+                                                    <h5 id="prod00des"></h5><h4 id="prod0des"></h4> 
                                                 </div>
                                             </div>
                                         </div>
@@ -202,83 +204,104 @@
                                         <form method="get">
                                         <div id='prod0dd'><a id="prod0d" href='javascript:void(0)'></a></div>
                                          </form>
+                                         </div>
+                                         <div class="product-content">
+                                         <form method="get">
+                                        <div id='prod0mm'><a id="prod0m" href='javascript:void(0)'></a></div>
+                                         </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3">
+                                <div class="col-xl-3" style="margin-bottom:30px">
                                     <div class="shop-item">
                                         <div class="product-thumb">
                                         <a><img id="prod1" src=""></a>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-tag"><a id="prod1n" href="addshop.php">ADD TO MERCH</a></div>
-                                             <h4 id="prod1q"></h4> 
                                             <div class="product-meta">
                                                 <div class="product-price">
-                                                    <h5 id="prod1p"></h5>
+                                                    <h5 id="prod11q"></h5><h4 id="prod1q"></h4> 
+                                                    <h5 id="prod11p"></h5><h4 id="prod1p"></h4> 
+                                                    <h5 id="prod11des"></h5><h4 id="prod1des"></h4> 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="product-content">
                                         <form method="get">
                                         <div id='prod1dd'><a id="prod1d" href='javascript:void(0)'></a></div>
+                                         </form></div>
+                                         <div class="product-content">
+                                         <form method="get">
+                                        <div id='prod1mm'><a id="prod1m" href='javascript:void(0)'></a></div>
                                          </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3">
+                                <div class="col-xl-3" style="margin-bottom:30px">
                                     <div class="shop-item">
                                         <div class="product-thumb">
                                         <a><img id="prod2" src=""></a>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-tag"><a id="prod2n" href="addshop.php">ADD TO MERCH</a></div>
-                                            <h4 id="prod2q"></h4> 
                                             <div class="product-meta">
-                                                <div class="product-price">
-                                                <h5 id="prod2p"></h5>
+                                              <div class="product-price">
+                                                <h5 id="prod22q"></h5><h4 id="prod2q"></h4> 
+                                                <h5 id="prod22p"></h5><h4 id="prod2p"></h4> 
+                                                <h5 id="prod22des"></h5><h4 id="prod2des"></h4> 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="product-content">
                                         <form method="get">
                                         <div id='prod2dd'><a id="prod2d" href='javascript:void(0)'></a></div>
+                                         </form></div>
+                                         <div class="product-content">
+                                         <form method="get">
+                                        <div id='prod2mm'><a id="prod2m" href='javascript:void(0)'></a></div>
                                          </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3">
+                                <div class="col-xl-3" style="margin-bottom:30px">
                                     <div class="shop-item">
                                         <div class="product-thumb">
                                         <a><img id="prod3" src=""></a>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-tag"><a id="prod3n" href="addshop.php">ADD TO MERCH</a></div>
-                                            <h4 id="prod3q"></h4> 
                                             <div class="product-meta">
                                                 <div class="product-price">
-                                                <h5 id="prod3p"></h5>
+                                                    <h5 id="prod33q"></h5><h4 id="prod3q"></h4> 
+                                                    <h5 id="prod33p"></h5><h4 id="prod3p"></h4> 
+                                                    <h5 id="prod33des"></h5><h4 id="prod3des"></h4> 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="product-content">
                                         <form method="get">
                                         <div id='prod3dd'><a id="prod3d" href='javascript:void(0)'></a></div>
+                                         </form></div>
+                                         <div class="product-content">
+                                         <form method="get">
+                                        <div id='prod3mm'><a id="prod3m" href='javascript:void(0)'></a></div>
                                          </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3">
+                                <div class="col-xl-3" style="margin-bottom:30px">
                                     <div class="shop-item">
                                         <div class="product-thumb">
                                         <a><img id="prod4" src=""></a>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-tag"><a id='prod4n' href="addshop.php">ADD TO MERCH</a></div>
-                                            <h4 id="prod4q"></h4> 
-                                            <div class="product-meta">
-                                                <div class="product-price">
-                                                <h5 id="prod4p"></h5>
+                                            <div class="product-meta" >
+                                            <div class="product-price">
+                                                  <h5 id="prod44q"></h5><h4 id="prod4q"></h4> 
+                                                   <h5 id="prod44p"></h5><h4 id="prod4p"></h4> 
+                                                   <h5 id="prod44des"></h5><h4 id="prod4des" style='margin-right:30px'></h4> 
                                                 </div>
                                             </div>
                                         </div>
@@ -286,12 +309,21 @@
                                         <form method="get">
                                         <div id='prod4dd'><a id="prod4d" href='javascript:void(0)'></a></div>
                                          </form>
+                                         </div>
+                                         <div class="product-content">
+                                         <form method="get">
+                                        <div id='prod4mm'><a id="prod4m" href='javascript:void(0)'></a></div>
+                                         </form>
                                         </div>
-                                    </div>
-                                </div>
+                                        </div>
+                                        </div>   
                             </div>
                         </div>
+                 </section>
+            </div>
+     </div>
     </main>
+</div>
     <!-- slider-area-end -->
     <!-- PHP HERE -->
     <?php
@@ -316,20 +348,36 @@
             prod0q = document.getElementById("prod0q");
         var
             prod0p = document.getElementById("prod0p");
+            var prod00q=document.getElementById('prod00q');
+        var prod00p=document.getElementById('prod00p');
+        var 
+        prod0des= document.getElementById('prod0des');
+        var
+        prod00des=document.getElementById('prod00des');
             var prod0dd=document.getElementById("prod0dd");
             var prod0d=document.getElementById("prod0d");
+            var prod0mm=document.getElementById("prod0mm");
+            var prod0m=document.getElementById("prod0m");
         var tab4 = '<?php if(isset($tab0[0]['img_url'])) echo ($tab0[0]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[0]['name'])) echo ($tab0[0]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[0]['quantity'])) echo ($tab0[0]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[0]['price'])) echo ($tab0[0]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[0]['description'])) echo ($tab0[0]['description']); else echo(""); ?>';
         prod0.src= tab4;
         prod0n.href= char;
         prod0n.innerHTML = tab1;
-        prod0q.innerHTML = 'quantity: '+tab2;
-        prod0p.innerHTML = 'Price: '+tab3+' OTP';
+        prod00q.innerHTML = 'quantity: ';
+        prod0q.innerHTML=tab2;
+        prod00p.innerHTML = 'Price: ';
+        prod0p.innerHTML =tab3+' OTP';
+        prod00des.innerHTML='Description:';
+        prod0des.innerHTML=tab5;
         prod0dd.className='product-tag';
         prod0d.href="<?php if(isset($tab0[0]['id'])) echo ('../model/deletemerch.php?id='.$tab0[0]['id']);?>";
         prod0d.innerHTML="Delete";
+        prod0mm.className='product-tag';
+        prod0m.href="<?php if(isset($tab0[0]['id'])) echo ('../model/modifymerch.php?id='.$tab0[0]['id']);?>";
+        prod0m.innerHTML="Modify";
                 }
        if (tab11!="")
        {
@@ -341,20 +389,36 @@
             prod1q = document.getElementById("prod1q");
         var
             prod1p = document.getElementById('prod1p');
+            var 
+        prod1des= document.getElementById('prod1des');
+        var
+        prod11des=document.getElementById('prod11des');
+        var prod11q=document.getElementById('prod11q');
+        var prod11p=document.getElementById('prod11p');
             var prod1dd=document.getElementById("prod1dd");
             var prod1d=document.getElementById("prod1d");
+            var prod1mm=document.getElementById("prod1mm");
+            var prod1m=document.getElementById("prod1m");
         var tab4 = '<?php if(isset($tab0[1]['img_url'])) echo ($tab0[1]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[1]['name'])) echo ($tab0[1]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[1]['quantity'])) echo ($tab0[1]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[1]['price'])) echo ($tab0[1]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[1]['description'])) echo ($tab0[1]['description']); else echo(""); ?>';
         prod1.src= tab4;
         prod1n.href= char;
         prod1n.innerHTML = tab1;
-        prod1q.innerHTML = 'quantity: '+tab2;
-        prod1p.innerHTML = 'Price: '+tab3+' OTP';
+        prod11q.innerHTML = 'quantity: ';
+        prod1q.innerHTML=tab2;
+        prod11p.innerHTML = 'Price: ';
+        prod1p.innerHTML =tab3+' OTP';
+        prod11des.innerHTML='Description:';
+        prod1des.innerHTML=tab5;
         prod1dd.className='product-tag';
         prod1d.href="<?php if(isset($tab0[1]['id'])) echo ('../model/deletemerch.php?id='.$tab0[1]['id']);?>";
         prod1d.innerHTML="Delete";
+        prod1mm.className='product-tag';
+        prod1m.href="<?php if(isset($tab0[1]['id'])) echo ('../model/modifymerch.php?id='.$tab0[1]['id']);?>";
+        prod1m.innerHTML="Modify";
          } 
          if (tab22!="")
          {
@@ -366,20 +430,36 @@
             prod2q = document.getElementById("prod2q");
         var
             prod2p = document.getElementById("prod2p");
+            var 
+        prod2des= document.getElementById('prod2des');
+        var
+        prod22des=document.getElementById('prod22des');
+            var prod22q=document.getElementById('prod22q');
+        var prod22p=document.getElementById('prod22p');
             var prod2dd=document.getElementById("prod2dd");
             var prod2d=document.getElementById("prod2d");
+            var prod2mm=document.getElementById("prod2mm");
+            var prod2m=document.getElementById("prod2m");
         var tab4 = '<?php if(isset($tab0[2]['img_url'])) echo ($tab0[2]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[2]['name'])) echo ($tab0[2]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[2]['quantity'])) echo ($tab0[2]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[2]['price'])) echo ($tab0[2]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[2]['description'])) echo ($tab0[2]['description']); else echo(""); ?>';
         prod2.src= tab4;
         prod2n.href= char;
         prod2n.innerHTML = tab1;
-        prod2q.innerHTML = 'quantity: '+tab2;
-        prod2p.innerHTML = 'Price: '+tab3+' OTP';
+        prod22q.innerHTML = 'quantity: ';
+        prod2q.innerHTML=tab2;
+        prod22p.innerHTML = 'Price: ';
+        prod2p.innerHTML =tab3+' OTP';
+        prod22des.innerHTML='Description:';
+        prod2des.innerHTML=tab5;
         prod2dd.className='product-tag';
         prod2d.href="<?php if(isset($tab0[2]['id'])) echo ('../model/deletemerch.php?id='.$tab0[2]['id']);?>";
         prod2d.innerHTML="Delete";
+        prod2mm.className='product-tag';
+        prod2m.href="<?php if(isset($tab0[2]['id'])) echo ('../model/modifymerch.php?id='.$tab0[2]['id']);?>";
+        prod2m.innerHTML="Modify";
          } 
          if (tab33!="")
          {
@@ -391,24 +471,40 @@
             prod3q = document.getElementById("prod3q");
         var
             prod3p = document.getElementById("prod3p");
+            var 
+        prod3des= document.getElementById('prod3des');
+        var
+        prod33des=document.getElementById('prod33des');
+            var prod33q=document.getElementById('prod33q');
+        var prod33p=document.getElementById('prod33p');
             var prod3dd=document.getElementById("prod3dd");
             var prod3d=document.getElementById("prod3d");
+            var prod3mm=document.getElementById("prod3mm");
+            var prod3m=document.getElementById("prod3m");
         var tab4 = '<?php if(isset($tab0[3]['img_url'])) echo ($tab0[3]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[3]['name'])) echo ($tab0[3]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[3]['quantity'])) echo ($tab0[3]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[3]['price'])) echo ($tab0[3]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[3]['description'])) echo ($tab0[3]['description']); else echo(""); ?>';
         prod3.src= tab4;
         prod3n.href= char;
         prod3n.innerHTML = tab1;
-        prod3q.innerHTML = 'quantity: '+tab2;
-        prod3p.innerHTML = 'Price: '+tab3+' OTP';
+        prod33q.innerHTML = 'quantity: ';
+        prod3q.innerHTML=tab2;
+        prod33p.innerHTML = 'Price: ';
+        prod3p.innerHTML =tab3+' OTP';
+        prod33des.innerHTML='Description:';
+        prod3des.innerHTML=tab5;
         prod3dd.className='product-tag';
         prod3d.href="<?php if(isset($tab0[3]['id'])) echo ('../model/deletemerch.php?id='.$tab0[3]['id']);?>";
         prod3d.innerHTML="Delete";
+        prod3mm.className='product-tag';
+        prod3m.href="<?php if(isset($tab0[3]['id'])) echo ('../model/modifymerch.php?id='.$tab0[3]['id']);?>";
+        prod3m.innerHTML="Modify";
          } 
          if (tab44!="")
          {
-            var
+          var
             prod4 = document.getElementById("prod4");
         var
             prod4n = document.getElementById("prod4n");
@@ -416,33 +512,40 @@
             prod4q = document.getElementById("prod4q");
         var
             prod4p = document.getElementById('prod4p');
+        var 
+        prod4des= document.getElementById('prod4des');
+        var
+        prod44des=document.getElementById('prod44des');
+            var prod44q=document.getElementById('prod44q');
+        var prod44p=document.getElementById('prod44p');
             var prod4dd=document.getElementById("prod4dd");
             var prod4d=document.getElementById("prod4d");
+            var prod4mm=document.getElementById("prod4mm");
+            var prod4m=document.getElementById("prod4m");
         var tab4 = '<?php if(isset($tab0[4]['img_url'])) echo ($tab0[4]['img_url']); else echo(""); ?>';
         var tab1 = '<?php if(isset($tab0[4]['name'])) echo ($tab0[4]['name']); else echo(""); ?>';
         var tab2 = '<?php if(isset($tab0[4]['quantity'])) echo ($tab0[4]['quantity']); else echo(""); ?>';
         var tab3 = '<?php if(isset($tab0[4]['price'])) echo ($tab0[4]['price']); else echo(""); ?>';
+        var tab5 ='<?php if(isset($tab0[4]['description'])) echo ($tab0[4]['description']); else echo(""); ?>';
         prod4.src= tab4;
         prod4n.href= char;
         prod4n.innerHTML = tab1;
-        prod4q.innerHTML = 'quantity: '+tab2;
-        prod4p.innerHTML = 'Price: '+tab3+' OTP';
+        prod44q.innerHTML = 'quantity: ';
+        prod4q.innerHTML=tab2;
+        prod44p.innerHTML = 'Price: ';
+        prod4p.innerHTML =tab3+' OTP';
+        prod44des.innerHTML='Description:';
+        prod4des.innerHTML=tab5;
         prod4dd.className='product-tag';
         prod4d.href="<?php if(isset($tab0[4]['id'])) echo ('../model/deletemerch.php?id='.$tab0[4]['id']);?>";
         prod4d.innerHTML="Delete";
+        prod4mm.className='product-tag';
+        prod4m.href="<?php if(isset($tab0[4]['id'])) echo ('../model/modifymerch.php?id='.$tab0[4]['id']);?>";
+        prod4m.innerHTML="Modify";
          } 
         </script> 
-        
-    
-
-
-
-
     <!-- END PHP -->
-    
 
-
- 
    </div>
   </div>
  </div>
@@ -471,7 +574,5 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
      <script  src="js/script.js"></script>
-     
-
 </body>
 </html>
