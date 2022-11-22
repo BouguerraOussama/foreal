@@ -96,6 +96,17 @@ class Product1
       header("location:../view/back.php");
     }
   }
+  public function showUserProduct1(){
+    require "../controller/config.php";
+    $connect=Config::getConnexion();
+    $sql="select * from product";
+    $request = $connect->prepare($sql);
+    $request->execute();
+    $data=$request->fetchAll();
+    foreach($data as $row){
+      if($row[])
+    }
+  }
 
 }
 
