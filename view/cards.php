@@ -37,8 +37,10 @@ $_SESSION["id"]= $itemSelected[0]["id"];
 
       </div>
       <div style="margin-left: 250px;">
-         <h4 style="margin-bottom:20px;">like this item?</h4>
-       <a href='oussemaform2.html' class='btn btn-style-two' style='text-decoration: none;'>Trade Now</a>
+         <h4 style="margin:20px 20px;">like this item?</h4>
+       <a href='oussemaform2.html' class='btn btn-style-two' style='text-decoration: none;'>Trade  Now</a>
+      <h4 style="margin:20px 20px; ">Nah it aint for me</h4>
+      <a href='trade.php' class='btn btn-style-two' style='text-decoration: none;'> browse again</a>
       </div>
    </div>
 
