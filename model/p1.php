@@ -2,14 +2,14 @@
 require "../controller/config.php";
 class Product1
 {
-  public function addProduct1($text, $data)
+  public function addProduct1($text, $data, $user)
   {
     if (isset($text['submit']) && count($data['image1']['name'])) {
       //insert into table product1
       $connect = Config::getConnexion();
-      $sql = "INSERT INTO product ( category, name, description,offer_nbr) VALUES (?, ?, ?,?)";
+      $sql = "INSERT INTO product ( category, name, description,offer_nbr,user_id) VALUES (?, ?, ?,?,?)";
       $request = $connect->prepare($sql);
-      $request->execute(array($text["category"], $text["name"], $text["description"], 0));
+      $request->execute(array($text["category"], $text["name"], $text["description"], 0, $user));
       $id = $connect->lastInsertId();
       //insert into table images 
       $p = count($data['image1']['name']);
@@ -35,6 +35,7 @@ class Product1
     echo ("<table border='1px solid'>
     <tr>
     <th>ID Product</th>
+    <th>ID user</th>
     <th>category of product</th>
     <th> product name</th>
     <th>product description</th>
@@ -45,6 +46,7 @@ class Product1
     foreach ($data1 as $row) {
       echo ("<tr>
         <td>" . $row['id'] . "</td>
+        <td>" . $row['user_id'] . "</td>
         <td>" . $row['category'] . "</td>
         <td>" . $row['name'] . "</td>
         <td>" . $row['description'] . "</td><td>");
@@ -96,18 +98,11 @@ class Product1
       header("location:../view/back.php");
     }
   }
-  public function showUserProduct1(){
-    require "../controller/config.php";
-    $connect=Config::getConnexion();
-    $sql="select * from product";
-    $request = $connect->prepare($sql);
-    $request->execute();
-    $data=$request->fetchAll();
-    foreach($data as $row){
-      if($row[])
-    }
+  public function showUserHisProduct1($user)
+  {
+    
+    
   }
-
 }
 
 

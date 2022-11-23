@@ -3002,12 +3002,14 @@ ul.minicart .cart-price .new {
 .latest-match-box .tournament-schedule-content {
 	padding: 41px 30px;
 	background: #1c181e;
+	width: 405px;
 }
 
 .latest-match-box .tournament-schedule-content p {
 	font-size: 13px;
 	line-height: 2;
 	padding-right: 20px;
+	width: 405px;
 }
 
 .latest-match-box .tournament-schedule-meta a {

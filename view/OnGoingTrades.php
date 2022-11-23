@@ -1,12 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="">
-
-<!-- Mirrored from themebeyond.com/html/geco/Geco/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:01 GMT -->
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>PointsShop</title>
+    <title>My On Going Trades</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,6 +25,29 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
+<?php
+session_start();
+require "../controller/config.php";
+$connect = Config::getConnexion();
+$user = $_SESSION["currentuser"];
+$sql = "select * from product where user_id=$user";
+$request = $connect->prepare($sql);
+$request->execute();
+$data = $request->fetchAll();
+$sql = "select * from file ";
+$request1 = $connect->prepare($sql);
+$request1->execute();
+$data1 = $request1->fetchAll();
+//offer
+$sql = "select * from product2 where user_id=$user";
+$request2 = $connect->prepare($sql);
+$request2->execute();
+$data2 = $request2->fetchAll();
+$sql = "select * from file2 ";
+$request3 = $connect->prepare($sql);
+$request3->execute();
+$data3 = $request3->fetchAll();
+?>
 
 <body>
 
@@ -39,7 +60,6 @@
         </div>
     </div>
     <!-- preloader-end -->
-
     <!-- header-area -->
     <header>
         <div class="header-top-area s-header-top-area d-none d-lg-block">
@@ -47,30 +67,28 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 d-none d-lg-block">
                         <div class="header-top-offer">
-                            <p style="color: rgb(54, 169, 225);">Premium Offer</p>
-                            <span class="coming-time" data-countdown="2022/11/15"></span>
+                            <p>Exclusive Black Friday ! Offer</p>
+                            <span class="coming-time" data-countdown="2021/3/15"></span>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="header-top-right">
-                            <!-- <div class="header-social">
-                                        <ul>
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        </ul>
-                                    </div> -->
+                            <div class="header-social">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
                             <div class="header-top-action">
                                 <ul>
                                     <li>
                                         <div class="header-top-mail">
-                                            <p><span></span>
-                                                <!-- <i class="far fa-envelope"></i><a
-                                                            href="https://themebeyond.com/cdn-cgi/l/email-protection#85ecebe3eac5e2e8e4ece9abe6eae8"><span
-                                                                class="__cf_email__"
-                                                                data-cfemail="076e69616847606264686e6961682964686a">[email&#160;protected]</span>
-                                                            </a> -->
+                                            <p><span>|</span><i class="far fa-envelope"></i><a
+                                                    href="https://themebeyond.com/cdn-cgi/l/email-protection#e980878f86a98e84888085c78a8684"><span
+                                                        class="__cf_email__"
+                                                        data-cfemail="fa93949c95ba9d9f999593949c95d4999597">[email&#160;protected]</span></a>
                                             </p>
                                         </div>
                                     </li>
@@ -96,19 +114,19 @@
                                         <!-- <li><a href="#">Pages</a></li> -->
                                         <!-- <li><a href="game-overview.html">Overview</a></li> -->
                                         <!-- <li><a href="community.html">Community</a></li> -->
-                                        <li><a href="trade.php">Trade</a></li>
-                                        <li><a href="Auction.html">Auction</a>
                                         <li class="show"><a href="trade.php">Trade</a>
                                             <ul class="submenu">
-                                                <li><a href="OnGoingTrades.html">My ongoing trades</a></li>
+                                                <li class="active"><a href="#">My ongoing trades</a></li>
                                             </ul>
                                         </li>
+                                        <li><a href="Auction.html">Auction</a>
+                                        <li><a href="POINTSSHOP.html">POINTS SHOP</a></li>
                                         <li><a href="forums.html">FORUM</a></li>
                                         <!-- <ul class="submenu">
-                                                        <li><a href="blog.html">News Page</a></li>
-                                                        <li><a href="blog-details.html">News Details</a></li>
-                                                    </ul>
-                                                </li> -->
+                                                                                    <li><a href="blog.html">News Page</a></li>
+                                                                                    <li><a href="blog-details.html">News Details</a></li>
+                                                                                </ul>
+                                                                            </li> -->
                                         <li><a href="contact.html">contact</a></li>
                                     </ul>
                                 </div>
@@ -117,46 +135,6 @@
                                         <li class="header-shop-cart"><a href="#">
                                                 <img src="img/icon/tradeCart.png" width="25px" alt="tradeCart">
                                                 <span>0</span></a>
-                                            <ul class="minicart">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="cart-img">
-                                                        <a href="#">
-                                                            <img src="img/product/cart_p01.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h4>
-                                                            <a href="#">Xbox One Controller</a>
-                                                        </h4>
-                                                        <div class="cart-price">
-                                                            <span class="new">$229.9</span>
-                                                            <span>
-                                                                <del>$229.9</del>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="del-icon">
-                                                        <a href="#">
-                                                            <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="total-price">
-                                                        <span class="f-left">Total:</span>
-                                                        <span class="f-right">$239.9</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="checkout-link">
-                                                        <a href="cart.html">Shopping Cart</a>
-                                                        <a class="red-color" href="checkout.html">Checkout</a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="header-shop-cart"><a href="#"><i class="fas fa-shopping-basket"
-                                                    style="color:rgb(54, 169, 225);"></i><span>0</span></a>
                                             <ul class="minicart">
                                                 <li class="d-flex align-items-start">
                                                     <div class="cart-img">
@@ -224,18 +202,17 @@
     <main>
 
         <!-- breadcrumb-area -->
-        <section class="breadcrumb-area breadcrumb-bg2">
+        <section class="breadcrumb-area breadcrumb-bg s-breadcrumb-bg">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-content text-center">
-                            <h2>POINTS <span>SHOP</span></h2>
+                            <h2>My Ongoing <span>Trades</span></h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="trade.html">Trade</a></li>
-                                    <li class="breadcrumb-item"><a href="AUCTION.html">Auction</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">POINTSSHOP</li>
+                                    <li class="breadcrumb-item"><a href="trade.php">Trade</a></li>
+                                    <li class="breadcrumb-item active" aria-current="#">OnGoingTrades</li>
                                 </ol>
                             </nav>
                         </div>
@@ -243,118 +220,104 @@
                 </div>
             </div>
         </section>
-        <!-- shop-area -->
-        <section class="shop-area black-bg pt-115 pb-90">
+        <!-- breadcrumb-area-end -->
+
+        <!-- upcoming-games -->
+        <section class="upcoming-games-area upcoming-games-bg pt-120 pb-80">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
-                        <div class="section-title title-style-three white-title text-center mb-40">
-                            <h2>Buy with your<span> OTP</span></h2>
+                        <div class="section-title title-style-three white-title text-center mb-70">
+                            <h2 style="color: rgb(54, 169, 225);">Trades you posted</h2>
+                            <p>These are the trades that you posted on the trade page you can click your trades posted
+                                to view the offers you got</p>
                         </div>
                     </div>
                 </div>
-                <div class="row product-active">
-                    <div class="col-xl-3">
-                        <div class="shop-item">
-                            <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img01.jpg" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-tag"><a href="#">t-shirt</a></div>
-                                <h4><a href="#">Women Black T-shirt</a></h4>
-                                <div class="product-meta">
-                                    <div class="product-price">
-                                        <h5>2000 OTP</h5>
+                <div class="row">
+                    <?php for ($i = 0; $i < count($data); $i++) {
+                        if ($data[$i]["status"] > 0) {
+                            echo "<div class='col-lg-4 col-md-6'>
+                            <div class='upcoming-game-item mb-40'>
+                                <div class='upcoming-game-head'>
+                                    <div class='uc-game-head-title'>
+                                        <span>SEPTEMBER 22, 2020</span> 
+                                        <h4><a href='#'>" . $data[$i]["name"] . "</a></h4>
                                     </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                    <div class='uc-game-price'>
+                                        <h5>" . $data[$i]['offer_nbr'] . "</h5>
+                                    </div>
+                                </div>
+                                <p>" . $data[$i]['description'] . "</p>
+                                <div class='upcoming-game-thumb'>";
+                            foreach ($data1 as $row1) {
+                                if ($row1["product_id"] == $data[$i]["id"]) {
+                                    echo '<img src="data:image;base64,' . base64_encode($row1["data"]) . '" alt="image" style="width:333px; height:216px;">';
+                                    break;
+                                }
+                            }
+                            echo "<div class='upcoming-game-cart'>
+                                        <a href='#' class='btn transparent-btn'>View what people offred</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="shop-item">
-                            <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img02.jpg" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-tag"><a href="#">x-box</a></div>
-                                <h4><a href="#">Gears 5 Xbox Controller</a></h4>
-                                <div class="product-meta">
-                                    <div class="product-price">
-                                        <h5>Dt29.00</h5>
-                                    </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="shop-item">
-                            <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img03.jpg" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-tag"><a href="#">graphics</a></div>
-                                <h4><a href="#">GeForce RTX 2070</a></h4>
-                                <div class="product-meta">
-                                    <div class="product-price">
-                                        <h5>2900000 OTP</h5>
-                                    </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="shop-item">
-                            <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img04.jpg" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-tag"><a href="#">VR-Box</a></div>
-                                <h4><a href="#">Virtual Reality Smiled</a></h4>
-                                <div class="product-meta">
-                                    <div class="product-price">
-                                        <h5>Dt29.00</h5>
-                                    </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="shop-item">
-                            <div class="product-thumb">
-                                <a href="#"><img src="img/product/s_product_img04.jpg" alt=""></a>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-tag"><a href="#">VR-Box</a></div>
-                                <h4><a href="#">Virtual Reality Smiled</a></h4>
-                                <div class="product-meta">
-                                    <div class="product-price">
-                                        <h5>Dt29.00</h5>
-                                    </div>
-                                    <div class="product-cart-action">
-                                        <a href="#"><i class="fas fa-shopping-basket"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </div>";
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </section>
-        <!-- shop-area-end -->
+        <!-- upcoming-games-end -->
+
+        <!-- latest-match-area -->
+        <section class="latest-match-area latest-match-bg pt-115 pb-90">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section-title title-style-three white-title text-center mb-70">
+                            <h2><span>trades you offered</span></h2>
+                            <p>These are the offers that you made on displayed items you can check them untill the other
+                                end accepts your item</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <?php
+                     if (count($data2)==0){
+                            echo" <h2><span>You have made no offers yet</span></h2>";
+                        }
+                        else{
+                    for ($i = 0; $i < count($data2); $i++) {
+                       
+                        if ($data2[$i]["status"] > 0) {
+                            echo "<div class='col-lg-6'>
+                        <div class='latest-match-box mb-30'>
+                            <div class='latest-match-thumb'>";
+                             foreach ($data3 as $row3) {
+                                if ($row3["product_id"] == $data2[$i]["id"]) {
+                                    echo '<img src="data:image;base64,' . base64_encode($row3["data"]) . '" alt="image" style="width:131px; height:161px;">';
+                                    break;
+                                }
+                            }
+                                echo"</div>
+                            <div class='tournament-schedule-content'>
+                                <h3><a href='#'>Name <span>" . $data2[$i]["name"] . "</span></a></h3>
+                                <p>". $data2[$i]["description"]."</p>
+                            </div>
+                        </div>
+                    </div>";
+                            
+                        }
+                    }}
+                    ?>
+                </div>
+            </div>
+        </section>
+        <!-- latest-match-area-end -->
+
     </main>
-    <!-- main-area end -->
+    <!-- main-area-end -->
 
     <!-- footer-area -->
     <footer>
@@ -388,7 +351,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="footer-widget mb-50">
                             <div class="footer-logo mb-35">
-                                <a href="index.html"><img src="img/favicon.png" class="logof" alt="logo_footer  "></a>
+                                <a href="index.html"><img class="logof" src="img/favicon.png" alt="logo_footer"></a>
                             </div>
                             <div class="footer-text">
                                 <p>Gemas marketplace the relase etras thats sheets continig passag.</p>
@@ -401,7 +364,7 @@
                                         <li><i class="fas fa-envelope-open"></i><span>Email : </span><a
                                                 href="https://themebeyond.com/cdn-cgi/l/email-protection"
                                                 class="__cf_email__"
-                                                data-cfemail="761f18101936130e131b061a135815191b">[email&#160;protected]</a>
+                                                data-cfemail="0f666169604f6a776a627f636a216c6062">[email&#160;protected]</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -468,17 +431,15 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-fire footer-fire-right"><img src="img/images/footer_axe.png" height="306px"
-                    alt="axe_footer"></div>
-            <div class="footer-fire "><img src="img/images/pickaxe_footer.png" height="299px" alt="pickaxe_footer">
-            </div>
+            <div class="footer-fire"><img src="img/images/footer_fire.png" alt=""></div>
+            <div class="footer-fire footer-fire-right"><img src="img/images/footer_fire.png" alt=""></div>
         </div>
         <div class="copyright-wrap s-copyright-wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright-text">
-                            <p>Copyright © 2022 <a href="index.html">OnlyTrades</a> All Rights Reserved.</p>
+                            <p>Copyright © 2020 <a href="#">Geco</a> All Rights Reserved.</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 d-none d-md-block">
@@ -491,6 +452,12 @@
         </div>
     </footer>
     <!-- footer-area-end -->
+
+
+
+
+
+    <!-- JS here -->
     <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="js/vendor/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -512,5 +479,6 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 
 </html>

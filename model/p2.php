@@ -28,14 +28,14 @@ class Product2
     // return a table[0]=>id/category/product... table[i]=>id_image/image...
     return $product1;
   }
-  public function addProduct2($text, $data, $id2)
+  public function addProduct2($text, $data, $id2,$user)
   {
     if (isset($text['submit']) && count($data['image1']['name']) > 0) {
       $connect = Config::getConnexion();
       //insert into table product2
-      $sql = "INSERT INTO product2 ( category, name, description,status,id_product) VALUES (?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO product2 ( category, name, description,status,id_product,user_id) VALUES (?, ?, ?, ?, ?, ?)";
       $request = $connect->prepare($sql);
-      $request->execute(array($text["category"], $text["name"], $text["description"], 0, $id2));
+      $request->execute(array($text["category"], $text["name"], $text["description"], 0, $id2,$user));
       $id = $connect->lastInsertId();
       //insert into table images 
       $p = count($data['image1']['name']);

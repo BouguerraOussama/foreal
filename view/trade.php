@@ -29,8 +29,16 @@
 </head>
 <!-- php section start-->
 <?php
+session_start();
 require "../controller/config.php";
 $connect = Config::getConnexion();
+// change user
+$sql = "select * from user where id=1";
+$request = $connect->prepare($sql);
+$request->execute();
+$data = $request->fetchAll();   
+$_SESSION["currentuser"] = $data[0]['id'];
+
 $sql = "select * from product";
 $request1 = $connect->prepare($sql);
 $request1->execute();
@@ -39,6 +47,9 @@ $sql = "select * from file";
 $request2 = $connect->prepare($sql);
 $request2->execute();
 $data2 = $request2->fetchAll();
+//////
+
+
 ?>
 <!-- php section end -->
 
@@ -111,7 +122,11 @@ $data2 = $request2->fetchAll();
                                         <!-- <li><a href="#">Pages</a></li> -->
                                         <!-- <li><a href="game-overview.html">Overview</a></li> -->
                                         <!-- <li><a href="community.html">Community</a></li> -->
-                                        <li class="show"><a href="#">Trade</a></li>
+                                        <li class="show"><a href="#">Trade</a>
+                                                <ul class="submenu">
+                                                    <li><a href="OnGoingTrades.php">My ongoing trades</a></li>
+                                                </ul>
+                                        </li>
                                         <li><a href="Auction.html">Auction</a>
                                         <li><a href="POINTSSHOP.html">POINTS SHOP</a></li>
                                         <li><a href="forums.html">FORUM</a></li>
@@ -226,29 +241,26 @@ $data2 = $request2->fetchAll();
                 <div class="row">
                     <?php
                     for ($i = 0; $i < count($data1); $i++) {
-                        if ($data1[$i]["status"] >= 1) {
+                        if ($data1[$i]["status"] >= 1 && $data1[$i]['user_id'] != $_SESSION['currentuser'] ) {
                             echo " <div class='col-lg-4 col-sm-6' >
                                     <div class='accessories-item text-center mb-80'>
-                                <div class='accessories-thumb mb-30'>
+                                    <div class='accessories-thumb mb-30'>
                                     <a href='./cards.php?trade=" . $data1[$i]["id"] . "'>";
                             foreach ($data2 as $row) {
                                 if ($row["product_id"] == $data1[$i]["id"]) {
                                     echo '<img src="data:image;base64,' . base64_encode($row["data"]) . '" alt="image" style="width:380px; height:388px;">';
                                     break;
                                 }
-
                             }
-
-                            echo " </a>
-                                </div>
+                            echo "
+                             </a>";
+                           
+                                echo "</div>
                                 <div class='accessories-content'>
-                                    <h5><a href='./cards.php?trade=" . $data1[$i]["id"] . "'>Trade</a>
-                                            " . $data1[$i]['name'] . "
-                                        </a></h5>
-                                    <span>Description:
-                                        " . $data1[$i]['description'] . "
-                                    </span>
-                                    <a href='./cards.php?trade=".$data1[$i]["id"]."' class='shop-add-action'>Trade</a>
+                                    <h5><a href='./cards.php?trade=" . $data1[$i]["name"] . "'>Trade
+                                    </a>" . $data1[$i]['name'] . "</a>
+                                    </h5><span>Description: " . $data1[$i]['description'] . " </span>
+                                    <a href='./cards.php?trade=" . $data1[$i]["id"] . "' class='shop-add-action'>Trade</a>
                                     </div>
                                     </div>
                                 </div>";
@@ -296,7 +308,7 @@ $data2 = $request2->fetchAll();
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="footer-widget mb-50">
                             <div class="footer-logo mb-35">
-                                <a href="index.html"><img class="logof" src="img/favicon.png" alt=""></a>
+                                <a href="index.html"><img class="logof" src="img/favicon.png" alt="logo_footer"></a>
                             </div>
                             <div class="footer-text">
                                 <p>Gemas marketplace the relase etras thats sheets continig passag.</p>
