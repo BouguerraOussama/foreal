@@ -26,11 +26,13 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">INFO </h4>
-											<form action="../controller/upload1.php" method="post"
+											<form id="form" action="../controller/upload1.php" method="post"
 																				enctype="multipart/form-data">
 																				<!-- drop down select category product1 input-->
 																				<div class="form-group">
+																					
 																					<select name="category" id="category" class="form-style">
+																						<option value="" disabled selected hidden>Choose a category</option>
 																						<option value="console">console</option>
 																						<option value="videogame">videogame</option>
 																						<option value="prephirique">préphirique</option>
@@ -75,7 +77,7 @@
 																					<div class="error"></div>
 																			</div>
 																			<!-- submit -->
-																			<a href="trade.php"><input type="submit" name="submit" class="btn mt-4 "
+																			<a href="trade.php"><input type="submit" id="submit" name="submit" class="btn mt-4 "
 																					value="submit product"></a>
 											</form>
 										</div>
