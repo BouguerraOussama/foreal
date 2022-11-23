@@ -27,7 +27,7 @@
 </head>
 <?php
 session_start();
-require "../controller/config.php";
+require "../controller/productconfig.php";
 $connect = Config::getConnexion();
 $user = $_SESSION["currentuser"];
 $sql = "select * from product where user_id=$user";
@@ -280,12 +280,16 @@ $data3 = $request3->fetchAll();
                             <p>These are the offers that you made on displayed items you can check them untill the other
                                 end accepts your item</p>
                         </div>
+                        <?php
+                     if (count($data2)==0){
+                            echo" <h2>You have made no offers yet</h2>";
+                        }?>
                     </div>
+                    
                 </div>
                 <div class="row">
                     <?php
                      if (count($data2)==0){
-                            echo" <h2><span>You have made no offers yet</span></h2>";
                         }
                         else{
                     for ($i = 0; $i < count($data2); $i++) {

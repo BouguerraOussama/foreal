@@ -1,5 +1,5 @@
 <?php
-require "../controller/config.php";
+require "../controller/productconfig.php";
 class Product2
 {
   public function ReturnProduct1Detailed()

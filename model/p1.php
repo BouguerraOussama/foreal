@@ -1,5 +1,5 @@
 <?php
-require "../controller/config.php";
+require "../controller/productconfig.php";
 class Product1
 {
   public function addProduct1($text, $data, $user)
