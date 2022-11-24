@@ -33,33 +33,6 @@
       </div>
     </div>
   </div>
-  <!-- preloader-end -->
-  <!-- <header>
-      <div id="sticky-header" class="transparent-header-login">
-        <div class="container-fluid s-container-full-padding">
-          <div class="row">
-            <div class="col-12">
-              <div class="main-menu menu-style-two">
-                <nav>
-                  <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
-                    <ul>
-                      <li class="show"><a href="index.html">Home</a></li>
-                      <li><a href="trade.html">Trade</a></li>
-                      <li><a href="Auction.html">Auction</a></li>
-                      <li><a href="POINTSSHOP.html">POINTS SHOP</a></li>
-                      <li><a href="forums.html">FORUM</a></li>
-                      <li><a href="contact.html">contact</a></li>
-                    </ul>
-                  </div>
-                  <div class="header-action"></div>
-                </nav>
-              </div>
-              <div class="mobile-menu"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header> -->
 
   <div class="limiter">
     <div class="container-login100">
