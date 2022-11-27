@@ -33,7 +33,7 @@ session_start();
 require "../controller/productconfig.php";
 $connect = Config::getConnexion();
 // change user
-$sql = "select * from user where id=2";
+$sql = "select * from user where id=1";
 $request = $connect->prepare($sql);
 $request->execute();
 $data = $request->fetchAll();   

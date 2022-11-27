@@ -230,14 +230,20 @@ $data3 = $request3->fetchAll();
                         <div class="section-title title-style-three white-title text-center mb-70">
                             <h2 style="color: rgb(54, 169, 225);">Trades you posted</h2>
                             <p>These are the trades that you posted on the trade page you can click your trades posted
-                                to view the offers you got</p>
+                                to view the offers you got</p> 
                         </div>
+                         <?php 
+                                if (count($data)==0){
+                                         echo "<h2 style='color:black;'>You haven't posted any trades yet</h2>";
+                                }
+                                ?>  
                     </div>
                 </div>
                 <div class="row">
-                    <?php for ($i = 0; $i < count($data); $i++) {
-                        if ($data[$i]["status"] > 0) {
-                            echo "<div class='col-lg-4 col-md-6'>
+                    <?php 
+                    
+                    for ($i = 0; $i < count($data); $i++) {
+                        echo "<div class='col-lg-4 col-md-6'>
                             <div class='upcoming-game-item mb-40'>
                                 <div class='upcoming-game-head'>
                                     <div class='uc-game-head-title'>
@@ -248,21 +254,27 @@ $data3 = $request3->fetchAll();
                                         <h5>" . $data[$i]['offer_nbr'] . "</h5>
                                     </div>
                                 </div>
-                                <p>" . $data[$i]['description'] . "</p>
-                                <div class='upcoming-game-thumb'>";
-                            foreach ($data1 as $row1) {
-                                if ($row1["product_id"] == $data[$i]["id"]) {
-                                    echo '<img src="data:image;base64,' . base64_encode($row1["data"]) . '" alt="image" style="width:333px; height:216px;">';
-                                    break;
-                                }
+                                <p>" . $data[$i]['category'] . "</p>";
+                        if ($data[$i]["status"] == 0) {
+                            echo " <p style='color:red;'>Waiting for admin to accept your post</p>"; 
+                        }
+                        else{
+                            echo " <p style='color:green;'>Active</p>";
+                        }
+                        echo "<div class='upcoming-game-thumb'>";
+                        foreach ($data1 as $row1) {
+                            if ($row1["product_id"] == $data[$i]["id"]) {
+                                echo '<img src="data:image;base64,' . base64_encode($row1["data"]) . '" alt="image" style="width:330px; height:216px;">';
+                                break;
                             }
-                            echo "<div class='upcoming-game-cart'>
-                                        <a href='#' class='btn transparent-btn'>View what people offred</a>
+                        }
+                        echo "<div class='upcoming-game-cart'>
+                                        <a href='#' class='btn transparent-btn'>View</a>
                                     </div>
                                 </div>
                             </div>
                         </div>";
-                        }
+
                     }
                     ?>
                 </div>
@@ -281,39 +293,39 @@ $data3 = $request3->fetchAll();
                                 end accepts your item</p>
                         </div>
                         <?php
-                     if (count($data2)==0){
-                            echo" <h2>You have made no offers yet</h2>";
-                        }?>
+                        if (count($data2) == 0) {
+                            echo " <h2>You have made no offers yet</h2>";
+                        } ?>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <?php
-                     if (count($data2)==0){
-                        }
-                        else{
-                    for ($i = 0; $i < count($data2); $i++) {
-                       
-                        if ($data2[$i]["status"] > 0) {
-                            echo "<div class='col-lg-6'>
+                    if (count($data2) == 0) {
+                    } else {
+                        for ($i = 0; $i < count($data2); $i++) {
+
+                            if ($data2[$i]["status"] >= 0) {
+                                echo "<div class='col-lg-6'>
                         <div class='latest-match-box mb-30'>
                             <div class='latest-match-thumb'>";
-                             foreach ($data3 as $row3) {
-                                if ($row3["product_id"] == $data2[$i]["id"]) {
-                                    echo '<img src="data:image;base64,' . base64_encode($row3["data"]) . '" alt="image" style="width:131px; height:161px;">';
-                                    break;
+                                foreach ($data3 as $row3) {
+                                    if ($row3["product_id"] == $data2[$i]["id"]) {
+                                        echo '<img src="data:image;base64,' . base64_encode($row3["data"]) . '" alt="image" style="width:131px; height:161px;">';
+                                        break;
+                                    }
                                 }
-                            }
-                                echo"</div>
+                                echo "</div>
                             <div class='tournament-schedule-content'>
                                 <h3><a href='#'>Name <span>" . $data2[$i]["name"] . "</span></a></h3>
-                                <p>". $data2[$i]["description"]."</p>
+                                <p>" . $data2[$i]["description"] . "</p>
                             </div>
                         </div>
                     </div>";
-                            
+
+                            }
                         }
-                    }}
+                    }
                     ?>
                 </div>
             </div>
