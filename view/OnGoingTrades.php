@@ -247,7 +247,7 @@ $data3 = $request3->fetchAll();
                             <div class='upcoming-game-item mb-40'>
                                 <div class='upcoming-game-head'>
                                     <div class='uc-game-head-title'>
-                                        <span>SEPTEMBER 22, 2020</span> 
+                                        <span>POSTED: ".$data[$i]["post_date"]."</span> 
                                         <h4><a href='#'>" . $data[$i]["name"] . "</a></h4>
                                     </div>
                                     <div class='uc-game-price'>
@@ -269,7 +269,8 @@ $data3 = $request3->fetchAll();
                             }
                         }
                         echo "<div class='upcoming-game-cart'>
-                                        <a href='#' class='btn transparent-btn'>View</a>
+                                        <a href='#' class='btn transparent-btn'>Inspect</a>
+                                        <a href='#' class='btn transparent-btn'>view offers</a>
                                     </div>
                                 </div>
                             </div>

@@ -7,9 +7,9 @@ class Product1
     if (isset($text['submit']) && count($data['image1']['name'])) {
       //insert into table product1
       $connect = Config::getConnexion();
-      $sql = "INSERT INTO product ( category, name, description,offer_nbr,user_id) VALUES (?, ?, ?,?,?)";
+      $sql = "INSERT INTO product ( category, name, description,offer_nbr,user_id,post_date,end_time) VALUES (?, ?, ?,?, ?)";
       $request = $connect->prepare($sql);
-      $request->execute(array($text["category"], $text["name"], $text["description"], 0, $user));
+      $request->execute(array($text["category"], $text["name"], $text["description"], 0, $user, date('Y-m-d H:i:s')));
       $id = $connect->lastInsertId();
       //insert into table images 
       $p = count($data['image1']['name']);

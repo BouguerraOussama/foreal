@@ -33,12 +33,11 @@ session_start();
 require "../controller/productconfig.php";
 $connect = Config::getConnexion();
 // change user
-$sql = "select * from user where id=1";
+$sql = "select * from user where id=2";
 $request = $connect->prepare($sql);
 $request->execute();
 $data = $request->fetchAll();   
 $_SESSION["currentuser"] = $data[0]['id'];
-
 $sql = "select * from product";
 $request1 = $connect->prepare($sql);
 $request1->execute();
@@ -259,7 +258,7 @@ $data2 = $request2->fetchAll();
                                 <div class='accessories-content'>
                                     <h5><a href='./cards.php?trade=" . $data1[$i]["name"] . "'>Trade
                                     </a>" . $data1[$i]['name'] . "</a>
-                                    </h5><span>Description: " . $data1[$i]['description'] . " </span>
+                                    </h5><span>category: " . $data1[$i]['category'] . " </span>
                                     <a href='./cards.php?trade=" . $data1[$i]["id"] . "' class='shop-add-action'>Trade</a>
                                     </div>
                                     </div>
