@@ -473,12 +473,14 @@
     error_reporting(E_ERROR | E_PARSE);
     session_start();
     require '../controller/merch.php';
-        $tab=new merch;
+       $tab=new merch;
        $tab0 = $tab->affiche();
+       // $id=$_SESSION["id_user"];
        $id=1;
        $paniershow=new panier;
        $product=$paniershow->showbasket($id);
        $length=count($product);
+       $nopoints=$_GET["nopoints"];
      ?>
      <!-- Script for merch -->
      <script language='Javascript'>
@@ -674,6 +676,7 @@
         <!-- Script for basket -->
                  <script>
                     var length="<?php if($length!=0) echo $length; else echo("") ?>";
+                    var nopoints="<?php if($nopoints!=0) echo $nopoints; else echo("") ?>";
                     var max=0;
                     var qbas=0;
                     product=<?php if($length!=0) echo (json_encode($product));?>;
@@ -754,9 +757,17 @@
                              li3.appendChild(div7);
                        const a2=document.createElement("a");
                             a2.className="red-color";
-                            a2.href="javascript:void(0)";
+                            a2.href="../model/checkout.php?total="+max;
                             a2.innerHTML="Checkout";
                             div7.appendChild(a2);
+                            if(nopoints!="")
+                            {
+                             const span4=document.createElement("span");
+                             span4.className="f-left";
+                             span4.style.color="red";
+                             div6.appendChild(span4);
+                             span4.innerHTML="you don't have enough points";
+                            }
                     </script>
                     <!-- END SCRIPT FOR BASKET -->
     <!-- footer-area-end -->
