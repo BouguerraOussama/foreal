@@ -9,28 +9,34 @@
 </head>
 <body>
 <div class='card-wrapper'>    
-<form method='post' enctype="multipart/form-data">
+<form method='post' enctype="multipart/form-data" id="form">
       
       <div class='field'>
-         Name Product<br>
+         Product Name<br>
         <input type='text' name='namep' id='name'>
+        <p id="errormsg"></p>
       </div>
       
       <div class='field'>
       Price<br>
       <input type="text" name='price' id='price'>OTP
+      <p id="errormsg"></p>
       </div>
+      
       <div class='field'>
         Quantity<br>
         <input type="text" name='quantity' id='quantity'>
+        <p id="errormsg"></p>
         </div>
         <div class='field'>
             Image of the product<br><br>
             <input type="file" name='file' id='file'>
+            <p id="errormsg"></p>
             </div>
             <div class='field'>
          Description<br>
          <textarea name="description" id="description"></textarea>
+         <p id="errormsg"></p>
       </div>
       
       <br>
@@ -47,17 +53,11 @@ error_reporting(E_ERROR | E_PARSE);
 $img=$_FILES['file'];
 if (isset($_POST['add'])) 
 {
-if ($img['type']=='image/jpg' || $img['type']=='image/jpeg' || $img['type']=='image/png')
-{
         $merch = new merch;
         $merch->add($_POST,$_FILES['file']);
        header('location:backendmerch.php');
 }
-else 
-{
-  echo("<div class='field'>your file is not an image</div>");
-}
-}
 ?>
+<script src="js/addshop.js"></script>
 </body>
 </html>
