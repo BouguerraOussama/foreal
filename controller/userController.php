@@ -61,9 +61,9 @@ if (isset($_POST['login_user'])) {
         $user_password_hash = $user['password'];
         $user_name = $user['username'];
         $user_role = $user['role'];
-        $user_status = $user['status'];
+        $isBanned = $user['isBanned'];
         $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
-        if ($user_status == 0) {
+        if ($isBanned == 0) {
             $error_ban = "user Banned! <br> Please contact the administration for more details. ";
         } else if (strcmp($hash, $password)) {
             $success = "Sign in successful!";
