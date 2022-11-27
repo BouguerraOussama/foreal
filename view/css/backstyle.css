@@ -368,7 +368,8 @@ body.light-mode .video-bg:before {
   border-radius: 6px;
   transition: 0.3s;
 }
-.side-menu a:hover {
+
+.side-menu a.is-active, .side-menu a:hover {
   background-color: var(--hover-menu-bg);
 }
 .side-menu svg {
@@ -386,22 +387,22 @@ body.light-mode .video-bg:before {
   font-size: 11px;
 }
 
-.main-header1 {
+.main-header {
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   height: 58px;
   flex-shrink: 0;
 }
-.main-header1 .header-menu {
+.main-header .header-menu {
   margin-left: 150px;
 }
 @media screen and (max-width: 1055px) {
-  .main-header1 .header-menu {
+  .main-header .header-menu {
     margin: auto;
   }
 }
-.main-header1 .header-menu a {
+.main-header .header-menu a {
   padding: 20px 24px;
 }
 
@@ -882,3 +883,7 @@ body.light-mode .video-bg:before {
   background: var(--scrollbar-bg);
   border-radius: 10px;
 }
+
+/***********Responsive table***************/
+
+/**************************************/

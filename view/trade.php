@@ -1,12 +1,12 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-<!-- Mirrored from themebeyond.com/html/geco/Geco/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:44 GMT -->
+<!-- Mirrored from themebeyond.com/html/geco/Geco/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:01 GMT -->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Contact</title>
+    <title>Trade</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,8 +27,33 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
+<!-- php section start-->
+<?php
+session_start();
+require "../controller/productconfig.php";
+$connect = Config::getConnexion();
+// change user
+$sql = "select * from user where id=2";
+$request = $connect->prepare($sql);
+$request->execute();
+$data = $request->fetchAll();   
+$_SESSION["currentuser"] = $data[0]['id'];
+$sql = "select * from product";
+$request1 = $connect->prepare($sql);
+$request1->execute();
+$data1 = $request1->fetchAll();
+$sql = "select * from file";
+$request2 = $connect->prepare($sql);
+$request2->execute();
+$data2 = $request2->fetchAll();
+//////
+
+
+?>
+<!-- php section end -->
 
 <body>
+
 
     <!-- preloader -->
     <div id="preloader">
@@ -96,10 +121,10 @@
                                         <!-- <li><a href="#">Pages</a></li> -->
                                         <!-- <li><a href="game-overview.html">Overview</a></li> -->
                                         <!-- <li><a href="community.html">Community</a></li> -->
-                                        <li class="show"><a href="trade.php">Trade</a>
-                                            <ul class="submenu">
-                                                <li><a href="OnGoingTrades.html">My ongoing trades</a></li>
-                                            </ul>
+                                        <li class="show"><a href="#">Trade</a>
+                                                <ul class="submenu">
+                                                    <li><a href="OnGoingTrades.php">My ongoing trades</a></li>
+                                                </ul>
                                         </li>
                                         <li><a href="Auction.html">Auction</a>
                                         <li><a href="POINTSSHOP.html">POINTS SHOP</a></li>
@@ -109,7 +134,7 @@
                                                         <li><a href="blog-details.html">News Details</a></li>
                                                     </ul>
                                                 </li> -->
-                                        <li class="show"><a href="contact.html">contact</a></li>
+                                        <li><a href="contact.html">contact</a></li>
                                     </ul>
                                 </div>
                                 <div class="header-action">
@@ -184,19 +209,24 @@
     <main>
 
         <!-- breadcrumb-area -->
-        <section class="breadcrumb-area breadcrumb-bg">
+        <section class="breadcrumb-area breadcrumb-bg1">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-content text-center">
-                            <h2>contact <span>info</span></h2>
+                            <h2>Trade <span>store</span></h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">pages</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">contact</li>
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Trade</li>
                                 </ol>
                             </nav>
+                            <div class="third-banner-content text-center wow bounceInUp" data-wow-delay=".2s">
+                                <br>
+                                <br>
+                                <br>
+                                <a href="oussemaform.html" class="btn rotated-btn">Post offer</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -204,91 +234,43 @@
         </section>
         <!-- breadcrumb-area-end -->
 
-        <!-- contact-area -->
-        <section class="contact-area pt-120 pb-120">
+        <!-- shop-area -->
+        <section class="shop-area pt-120 pb-90">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div id="contact-map"></div>
-                    </div>
-                    <div class="col-lg-6 pl-45">
-                        <div class="section-title title-style-three mb-20">
-                            <h2>CONTACT US ABOUT <span>PRESS</span></h2>
-                        </div>
-                        <div class="contact-info-list mb-40">
-                            <ul>
-                                <li><i class="fas fa-map-marker-alt"></i>Walking Park, Los Angeles, Brockland, USA</li>
-                                <li><i class="fas fa-envelope"></i><a
-                                        href="https://themebeyond.com/cdn-cgi/l/email-protection" class="__cf_email__"
-                                        data-cfemail="7c15121a133c1f10130904521f1311">[email&#160;protected]</a></li>
-                            </ul>
-                        </div>
-                        <div class="contact-form">
-                            <form action="#">
-                                <textarea name="message" id="message" placeholder="Write Message..."></textarea>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="text" placeholder="Your Name">
+                    <?php
+                    for ($i = 0; $i < count($data1); $i++) {
+                        if ($data1[$i]["status"] >= 1 && $data1[$i]['user_id'] != $_SESSION['currentuser'] ) {
+                            echo " <div class='col-lg-4 col-sm-6' >
+                                    <div class='accessories-item text-center mb-80'>
+                                    <div class='accessories-thumb mb-30'>
+                                    <a href='./cards.php?trade=" . $data1[$i]["id"] . "'>";
+                            foreach ($data2 as $row) {
+                                if ($row["product_id"] == $data1[$i]["id"]) {
+                                    echo '<img src="data:image;base64,' . base64_encode($row["data"]) . '" alt="image" style="width:380px; height:388px;">';
+                                    break;
+                                }
+                            }
+                            echo "
+                             </a>";
+                           
+                                echo "</div>
+                                <div class='accessories-content'>
+                                    <h5><a href='./cards.php?trade=" . $data1[$i]["name"] . "'>Trade
+                                    </a>" . $data1[$i]['name'] . "</a>
+                                    </h5><span>category: " . $data1[$i]['category'] . " </span>
+                                    <a href='./cards.php?trade=" . $data1[$i]["id"] . "' class='shop-add-action'>Trade</a>
                                     </div>
-                                    <div class="col-md-6">
-                                        <input type="email" placeholder="Your Mail">
                                     </div>
-                                </div>
-                                <button>SUBMIT MESSAGE</button>
-                            </form>
-                        </div>
-                    </div>
+                                </div>";
+                        }
+                    }
+                    ?>
+
                 </div>
             </div>
         </section>
-        <!-- contact-area-end -->
-
-
-        <!-- brand-area -->
-        <div class="brand-area lite-gray-bg pb-170 pt-120">
-            <div class="container">
-                <div class="row brand-active">
-                    <div class="col-xl-2">
-                        <div class="brand-item">
-                            <img src="img/brand/brand_logo01.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="brand-item">
-                            <img src="img/brand/brand_logo02.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="brand-item">
-                            <img src="img/brand/brand_logo03.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="brand-item">
-                            <img src="img/brand/brand_logo04.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="brand-item">
-                            <img src="img/brand/brand_logo05.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="brand-item">
-                            <img src="img/brand/brand_logo06.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="brand-item">
-                            <img src="img/brand/brand_logo03.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- brand-area-end -->
-
-
+        <!-- shop-area-end -->
 
     </main>
     <!-- main-area-end -->
@@ -325,7 +307,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="footer-widget mb-50">
                             <div class="footer-logo mb-35">
-                                <a href="index.html"><img src="img/favicon.png" class="logof" alt=""></a>
+                                <a href="index.html"><img class="logof" src="img/favicon.png" alt="logo_footer"></a>
                             </div>
                             <div class="footer-text">
                                 <p>Gemas marketplace the relase etras thats sheets continig passag.</p>
@@ -338,7 +320,7 @@
                                         <li><i class="fas fa-envelope-open"></i><span>Email : </span><a
                                                 href="https://themebeyond.com/cdn-cgi/l/email-protection"
                                                 class="__cf_email__"
-                                                data-cfemail="96fff8f0f9d6f3eef3fbe6faf3b8f5f9fb">[email&#160;protected]</a>
+                                                data-cfemail="c1a8afa7ae81a4b9a4acb1ada4efa2aeac">[email&#160;protected]</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -450,43 +432,10 @@
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIJ_QKHN-bi6_1C9f5eYE3pZs1zhQIo5o"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        function basicmap() {
-            // Basic options for a simple Google Map
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
-                // How zoomed in you want the map to start at (always required)
-                zoom: 11,
-                scrollwheel: false,
-                // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(40.6700, -73.9400), // New York
-                // This is where you would paste any style found on Snazzy Maps.
-                styles: [{ "featureType": "all", "elementType": "geometry.fill", "stylers": [{ "weight": "2.00" }] }, { "featureType": "all", "elementType": "geometry.stroke", "stylers": [{ "color": "#9c9c9c" }] }, { "featureType": "all", "elementType": "labels.text", "stylers": [{ "visibility": "on" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "color": "#f2f2f2" }] }, { "featureType": "landscape", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }] }, { "featureType": "road", "elementType": "geometry.fill", "stylers": [{ "color": "#eeeeee" }] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#7b7b7b" }] }, { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#46bcec" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#c8d7d4" }] }, { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#070707" }] }, { "featureType": "water", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }]
-            };
-            // Get the HTML DOM element that will contain your map
-            // We are using a div with id="map" seen below in the <body>
-            var mapElement = document.getElementById('contact-map');
-
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(40.6700, -73.9400),
-                map: map,
-                icon: 'img/icon/map_marker.png',
-                title: 'Geco'
-            });
-        }
-        if ($('#contact-map').length != 0) {
-            google.maps.event.addDomListener(window, 'load', basicmap);
-        }
-    </script>
 </body>
 
-<!-- Mirrored from themebeyond.com/html/geco/Geco/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:44 GMT -->
+
 
 </html>
