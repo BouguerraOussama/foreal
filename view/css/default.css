@@ -562,6 +562,12 @@
 .pl-100 {
 	padding-left: 100px;
 }
+.pl-200 {
+	padding-left: 200px;
+}
+.pl-400 {
+	padding-left: 400px;
+}
 
 
 /*-- Padding Right --*/
@@ -636,6 +642,12 @@
 }
 .pr-100 {
 	padding-right: 100px;
+}
+.pr-200 {
+	padding-right: 200px;
+}
+.pr-400 {
+	padding-right: 400px;
 }
 
 /* font weight */

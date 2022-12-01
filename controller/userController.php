@@ -20,9 +20,20 @@ if (isset($_POST['reg_user'])) {
         ':email' => $email
     ]);
     $userCount = $stmt2->rowCount();
+
     if ($userCount != 0) { // if user exists
         echo ("email already exists");
     } else {
+        $user_nickname = $username;
+
+        $d_user_nickname = base64_encode($user_nickname);
+
+        // user nickname
+        setcookie('_uiid_', $d_user_nickname, time() + 60 * 60 * 24, '/', '', '', true);
+        $_SESSION['user_name'] = $username;
+
+        $_SESSION['role'] = $user_role;
+        $_SESSION['login'] = 'success';
         // $password = md5($password_1); //encrypt the password before saving in the database
         $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
         $query = "INSERT INTO users (username, first_name ,last_name, email, password ,birthdate,gender) VALUES (:username,:firstName,:lastName, :email, :password,:birthdate,:gender)";
@@ -36,9 +47,81 @@ if (isset($_POST['reg_user'])) {
             ':birthdate' => $birthdate,
             ':gender' => $gender
         ]);
+        $last_id = $pdo->lastInsertId();
+        // userid
+        $_SESSION['id'] = $last_id;
+        $d_user_id = base64_encode($last_id);
+        setcookie('_uid_', $d_user_id, time() + 60 * 60 * 24, '/', '', '', true);
         header('Location: http://localhost/foreal/view/');
         die();
     }
+}
+//edit user
+if (isset($_POST['edit_user'])) {
+
+
+    if (isset($_SESSION['id'])) {
+        $u_id = $_SESSION['id'];
+    } else {
+        $u_id = -1;
+    }
+    $sql = "SELECT * FROM users WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':id' => $u_id
+    ]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //receive all input values from the form
+    if (($_POST['username']) != null) {
+        $username = $_POST['username'];
+    } else {
+        $username = $user['username'];
+    }
+    if (($_POST['email']) != null) {
+        $email = $_POST['email'];
+    } else {
+        $email = $user['email'];
+    }
+
+    if (($_POST['lastName']) != null) {
+        $lastName = $_POST['lastName'];
+    } else {
+        $lastName = $user['last_name'];
+    }
+
+    if (($_POST['firstName']) != null) {
+        $firstName = $_POST['firstName'];
+    } else {
+        $firstName = $user['first_name'];
+    }
+
+    if (($_POST['password']) != null) {
+        $password = $_POST['password'];
+    } else {
+        $password = $user['password'];
+    }
+    $user_nickname = $username;
+    $d_user_nickname = base64_encode($user_nickname);
+    // user nickname
+    setcookie('_uiid_', $d_user_nickname, time() + 60 * 60 * 24, '/', '', '', true);
+    $_SESSION['user_name'] = $username;
+    $_SESSION['role'] = $user_role;
+    $_SESSION['login'] = 'success';
+    // $password = md5($password_1); //encrypt the password before saving in the database
+    $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
+    $query = "UPDATE users SET username = :username, email = :email, first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([
+        ':username' => $username,
+        ':email' => $email,
+        ':first_name' => $firstName,
+        ':last_name' => $lastName,
+        ':password' => $hash,
+        ':id' => $user['id']
+    ]);
+    header('Location: http://localhost/foreal/view/');
+    die();
 }
 
 // LOGIN USER
@@ -61,9 +144,9 @@ if (isset($_POST['login_user'])) {
         $user_password_hash = $user['password'];
         $user_name = $user['username'];
         $user_role = $user['role'];
-        $user_status = $user['status'];
+        $user_status = $user['isBanned'];
         $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
-        if ($user_status == 0) {
+        if ($user_status == 1) {
             $error_ban = "user Banned! <br> Please contact the administration for more details. ";
         } else if (strcmp($hash, $password)) {
             $success = "Sign in successful!";
