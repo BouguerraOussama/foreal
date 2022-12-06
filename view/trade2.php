@@ -1,10 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="">
+
+<!-- Mirrored from themebeyond.com/html/geco/Geco/game-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:04:44 GMT -->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>My On Going Trades</title>
+    <title>Trade</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,38 +27,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
+<!-- php section start-->
 <?php
-session_start();
-require "../controller/productconfig.php";
-$connect = Config::getConnexion();
-$user = $_SESSION["currentuser"];
-$sql = "select * from product where user_id=$user";
-$request = $connect->prepare($sql);
-$request->execute();
-$data = $request->fetchAll();
-$sql = "select * from file ";
-$request1 = $connect->prepare($sql);
-$request1->execute();
-$data1 = $request1->fetchAll();
-//offer
-$sql = "select * from product2 where user_id=$user";
-$request2 = $connect->prepare($sql);
-$request2->execute();
-$data2 = $request2->fetchAll();
-$sql = "select * from file2 ";
-$request3 = $connect->prepare($sql);
-$request3->execute();
-$data3 = $request3->fetchAll();
-$_SESSION["where_it_came_from"]="OnGoingTrades.php";
-//count offre for trades
-// $sql = "select * from product2 where product_id=$user && ";
-// $request2 = $connect->prepare($sql);
-// $request2->execute();
-// $data2 = $request2->fetchAll();
+require "../model/p2.php";
+$prod=new Product2();
+$itemSelected=$prod->ReturnProduct1Detailed();
 ?>
+<!-- php section end -->
 
 <body>
-
     <!-- preloader -->
     <div id="preloader">
         <div id="loading-center">
@@ -66,6 +45,7 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
         </div>
     </div>
     <!-- preloader-end -->
+
     <!-- header-area -->
     <header>
         <div class="header-top-area s-header-top-area d-none d-lg-block">
@@ -73,28 +53,30 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
                 <div class="row align-items-center">
                     <div class="col-lg-6 d-none d-lg-block">
                         <div class="header-top-offer">
-                            <p>Exclusive Black Friday ! Offer</p>
-                            <span class="coming-time" data-countdown="2021/3/15"></span>
+                            <p style="color: rgb(54, 169, 225);">Premium Offer</p>
+                            <span class="coming-time" data-countdown="2022/11/15"></span>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="header-top-right">
-                            <div class="header-social">
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
+                            <!-- <div class="header-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div> -->
                             <div class="header-top-action">
                                 <ul>
                                     <li>
                                         <div class="header-top-mail">
-                                            <p><span>|</span><i class="far fa-envelope"></i><a
-                                                    href="https://themebeyond.com/cdn-cgi/l/email-protection#e980878f86a98e84888085c78a8684"><span
-                                                        class="__cf_email__"
-                                                        data-cfemail="fa93949c95ba9d9f999593949c95d4999597">[email&#160;protected]</span></a>
+                                            <p><span></span>
+                                                <!-- <i class="far fa-envelope"></i><a
+                                                        href="https://themebeyond.com/cdn-cgi/l/email-protection#85ecebe3eac5e2e8e4ece9abe6eae8"><span
+                                                            class="__cf_email__"
+                                                            data-cfemail="076e69616847606264686e6961682964686a">[email&#160;protected]</span>
+                                                        </a> -->
                                             </p>
                                         </div>
                                     </li>
@@ -116,23 +98,19 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
                                 </div>
                                 <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
+                                        <li ><a href="index.html">Home</a></li>
                                         <!-- <li><a href="#">Pages</a></li> -->
                                         <!-- <li><a href="game-overview.html">Overview</a></li> -->
                                         <!-- <li><a href="community.html">Community</a></li> -->
-                                        <li class="show"><a href="trade.php">Trade</a>
-                                            <ul class="submenu">
-                                                <li class="active"><a href="#">My ongoing trades</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="Auction.html">Auction</a>
+                                        <li class="show"><a href="./trade.php">Trade</a></li>
+                                        <li><a href="Auction.html">Auction</a></li>
                                         <li><a href="POINTSSHOP.html">POINTS SHOP</a></li>
-                                        <li><a href="forums.html">FORUM</a></li>
                                         <!-- <ul class="submenu">
-                                                                                    <li><a href="blog.html">News Page</a></li>
-                                                                                    <li><a href="blog-details.html">News Details</a></li>
-                                                                                </ul>
-                                                                            </li> -->
+                                                    <li><a href="blog.html">News Page</a></li>
+                                                    <li><a href="blog-details.html">News Details</a></li>
+                                                </ul>
+                                            </li> -->
+                                        <li><a href="forums.html">FORUM</a></li>
                                         <li><a href="contact.html">contact</a></li>
                                     </ul>
                                 </div>
@@ -213,12 +191,12 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-content text-center">
-                            <h2>My Ongoing <span>Trades</span></h2>
+                            <h2>Item <span>Selected</span></h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                                     <li class="breadcrumb-item"><a href="trade.php">Trade</a></li>
-                                    <li class="breadcrumb-item active" aria-current="#">OnGoingTrades</li>
+                                    <li class="breadcrumb-item active" aria-current="page">item selected</li>
                                 </ol>
                             </nav>
                         </div>
@@ -228,129 +206,124 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
         </section>
         <!-- breadcrumb-area-end -->
 
-        <!-- upcoming-games -->
-        <section class="upcoming-games-area upcoming-games-bg pt-120 pb-80">
+        <!-- game-single-area -->
+        <section class="game-single-area pt-120 pb-120">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title title-style-three white-title text-center mb-70">
-                            <h2 style="color: rgb(54, 169, 225);">Trades you posted</h2>
-                            <p>These are the trades that you posted on the trade page you can click your trades posted
-                                to view the offers you got</p> 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="game-single-content">
+                            <div class="game-single-title mt-60 mb-30">
+                                <h4>ITEM DETAILS</h4>
+                            </div>
+                            <div class="game-single-info mb-65">
+                                <ul>
+                                    <li><span>Category :</span><?php echo $itemSelected[0]["category"];?></li>
+                                    <li><span>ITEM NAME :</span> <?php echo $itemSelected[0]["name"]; ?></li>
+                                    <li><span>USER NAME :</span> Games Controller System</li>
+                                    <li><span>END DATE :</span> Tudesday 20/03/2001</li>
+                                </ul>
+                            </div>
+                            <div class="game-single-title mb-30">
+                                <h4>  ITEM <span>DESCIPTION</span></h4>
+                            </div>
+                            <p><?php echo $itemSelected[0]["description"]; ?></p>
+                            <div class="game-single-gallery">
+                                <div class="row">
+                                    <?php   
+                                        for($i=1 ; $i<count($itemSelected) ; $i++){    
+                                        echo "<div class='col-lg-4 col-sm-6'>";     
+                                          echo '<img src="data:image;base64,' . base64_encode($itemSelected[$i]['data']) . '" alt="image" style="width:100px;">';
+                                        echo "</div>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="game-single-shape"><img src="img/images/game_section_shape.png" alt=""></div>
                         </div>
-                         <?php 
-                                if (count($data)==0){
-                                         echo "<h2 style='color:black;'>You haven't posted any trades yet</h2>";
-                                }
-                                ?>  
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- game-single-area-end -->
+
+        <!-- upcoming-games -->
+        <section class="upcoming-games-area pb-140">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="game-single-title mb-55">
+                            <h4>released <span>GAMES</span></h4>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <?php 
-                    
-                    for ($i = 0; $i < count($data); $i++) {
-                        echo "<div class='col-lg-4 col-md-6'>
-                            <div class='upcoming-game-item mb-40'>
-                                <div class='upcoming-game-head'>
-                                    <div class='uc-game-head-title'>
-                                        <span>POSTED: ".$data[$i]["post_date"]."</span> 
-                                        <h4><a href='#'>" . $data[$i]["name"] . "</a></h4>
-                                    </div>
-                                    <div class='uc-game-price'>
-                                        <h5>" . $data[$i]['offer_nbr'] . "</h5>
-                                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="upcoming-game-item mb-40">
+                            <div class="upcoming-game-head">
+                                <div class="uc-game-head-title">
+                                    <span>SEPTEMBER 22, 2020</span>
+                                    <h4><a href="#">zombie land</a></h4>
                                 </div>
-                                <p>" . $data[$i]['category'] . "</p>";
-                        if ($data[$i]["status"] == 0) {
-                            echo " <p style='color:red;'>Waiting for admin to accept your post</p>"; 
-                        }
-                        else{
-                            echo " <p style='color:green;'>Active</p>";
-                        }
-                        echo "<div class='upcoming-game-thumb'>";
-                        foreach ($data1 as $row1) {
-                            if ($row1["product_id"] == $data[$i]["id"]) {
-                                echo '<img src="data:image;base64,' . base64_encode($row1["data"]) . '" alt="image" style="width:330px; height:216px;">';
-                                break;
-                            }
-                        }
-                        echo "<div class='upcoming-game-cart'>
-                                        <a href='./cards.php?trade=" . $data[$i]["id"] . "' class='btn transparent-btn'>Inspect</a><br><br>
-                                       <a href='./offers.php?offer=" . $data[$i]["id"] . "' class='btn transparent-btn'>view offers</a>
-                                    </div>
+                                <div class="uc-game-price">
+                                    <h5>$19</h5>
                                 </div>
                             </div>
-                        </div>";
-
-                    }
-                    ?>
+                            <p>Compete with players remote island winner takes showdown known issue.</p>
+                            <div class="upcoming-game-thumb">
+                                <img src="img/images/upcoming_game_thumb01.jpg" alt="">
+                                <div class="upcoming-game-cart">
+                                    <a href="#" class="btn transparent-btn"><i class="fas fa-shopping-basket"></i>BUY
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="upcoming-game-item mb-40">
+                            <div class="upcoming-game-head">
+                                <div class="uc-game-head-title">
+                                    <span>SEPTEMBER 22, 2020</span>
+                                    <h4><a href="#">call of duty</a></h4>
+                                </div>
+                                <div class="uc-game-price">
+                                    <h5>$19</h5>
+                                </div>
+                            </div>
+                            <p>Compete with players remote island winner takes showdown known issue.</p>
+                            <div class="upcoming-game-thumb">
+                                <img src="img/images/upcoming_game_thumb02.jpg" alt="">
+                                <div class="upcoming-game-cart">
+                                    <a href="#" class="btn transparent-btn"><i class="fas fa-shopping-basket"></i>BUY
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="upcoming-game-item mb-40">
+                            <div class="upcoming-game-head">
+                                <div class="uc-game-head-title">
+                                    <span>SEPTEMBER 22, 2020</span>
+                                    <h4><a href="#">sky hunter</a></h4>
+                                </div>
+                                <div class="uc-game-price">
+                                    <h5>$19</h5>
+                                </div>
+                            </div>
+                            <p>Compete with players remote island winner takes showdown known issue.</p>
+                            <div class="upcoming-game-thumb">
+                                <img src="img/images/upcoming_game_thumb03.jpg" alt="">
+                                <div class="upcoming-game-cart">
+                                    <a href="#" class="btn transparent-btn"><i class="fas fa-shopping-basket"></i>BUY
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- upcoming-games-end -->
-
-        <!-- latest-match-area -->
-        <section class="latest-match-area latest-match-bg pt-115 pb-90">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title title-style-three white-title text-center mb-70">
-                            <h2><span>trades you offered</span></h2>
-                            <p>These are the offers that you made on displayed items you can check them untill the other
-                                end accepts your item</p>
-                        </div>
-                        <?php
-                        if (count($data2) == 0) {
-                            echo " <h2>You have made no offers yet</h2>";
-                        } ?>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <?php
-                    if (count($data2) == 0) {
-                    } else {
-                        for ($i = 0; $i < count($data2); $i++) {
-
-                            if ($data2[$i]["status"] >= 0) {
-                                echo "<div class='col-lg-6'>
-                        <div class='latest-match-box mb-30'>
-                            <div class='latest-match-thumb'>";
-                                foreach ($data3 as $row3) {
-                                    if ($row3["product_id"] == $data2[$i]["id"]) {
-                                        echo '<img src="data:image;base64,' . base64_encode($row3["data"]) . '" alt="image" style="width:131px; height:161px;">';
-                                        break;
-                                    }
-                                }
-                                echo "</div>
-                            <div class='tournament-schedule-content'>
-                                <h3><a href='#'>Name <span>" . $data2[$i]["name"] . "</span></a></h3>
-                                <p>" . $data2[$i]["description"] . "</p>
-                                 <div class='tournament-schedule-meta'>
-                                        <h5>Status <span>" ;switch( $data2[$i]["status"]){
-                                            case 0:
-                                                echo "On hold";
-                                                break;
-                                                case 1:
-                                                    echo "Ongoing";
-                                                    break;
-                                        } echo "</span></h5>
-                                        <a href='cards.php?offre=".$data2[$i]["id"]."'>view</a>
-                                    </div>
-                                
-                            </div>
-                           
-                        </div>
-                    </div>";
-
-                            }
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-        </section>
-        <!-- latest-match-area-end -->
 
     </main>
     <!-- main-area-end -->
@@ -387,7 +360,7 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="footer-widget mb-50">
                             <div class="footer-logo mb-35">
-                                <a href="index.html"><img class="logof" src="img/favicon.png" alt="logo_footer"></a>
+                                <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
                             </div>
                             <div class="footer-text">
                                 <p>Gemas marketplace the relase etras thats sheets continig passag.</p>
@@ -400,7 +373,7 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
                                         <li><i class="fas fa-envelope-open"></i><span>Email : </span><a
                                                 href="https://themebeyond.com/cdn-cgi/l/email-protection"
                                                 class="__cf_email__"
-                                                data-cfemail="0f666169604f6a776a627f636a216c6062">[email&#160;protected]</a>
+                                                data-cfemail="83eaede5ecc3e6fbe6eef3efe6ade0ecee">[email&#160;protected]</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -516,5 +489,6 @@ $_SESSION["where_it_came_from"]="OnGoingTrades.php";
     <script src="js/main.js"></script>
 </body>
 
+<!-- Mirrored from themebeyond.com/html/geco/Geco/game-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:00 GMT -->
 
 </html>

@@ -1,8 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-<!-- Mirrored from themebeyond.com/html/geco/Geco/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:05:01 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -47,7 +45,7 @@ $request2 = $connect->prepare($sql);
 $request2->execute();
 $data2 = $request2->fetchAll();
 //////
-
+$_SESSION["where_it_came_from"]="trade.php";
 
 ?>
 <!-- php section end -->
@@ -192,7 +190,7 @@ $data2 = $request2->fetchAll();
                     <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <form>
+                                <form action="">
                                     <input type="text" placeholder="Search here...">
                                     <button><i class="fa fa-search"></i></button>
                                 </form>

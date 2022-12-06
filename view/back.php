@@ -8,6 +8,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 </head>
+<?php
+session_start();
+require "../model/p1.php";
+//table product variables
+$product1 = new Product1();
+$_SESSION["product1counter"] = $product1->product1counter();
+?>
 <body>
 <!-- partial:index.partial.html -->
 <div class="video-bg">
@@ -40,14 +47,17 @@ Your browser does not support the video tag.
        <path xmlns="http://www.w3.org/2000/svg" d="M192 192h128v128H192zm0 0" fill="currentColor" data-original="#82b1ff" />
        <path xmlns="http://www.w3.org/2000/svg" d="M384 192h128v128H384zm0 0M0 384h128v128H0zm0 0M192 384h128v128H192zm0 0M384 384h128v128H384zm0 0" fill="currentColor" data-original="#bfc9d1" />
       </svg>
-      Prouct1
+      Prouct
+      <span class="notification-number updates ">
+        <?php echo $product1->product1counter(); ?>
+      </span>
      </a>
      <a href="back1.php" >
       <svg viewBox="0 0 488.932 488.932" fill="currentColor">
        <path d="M243.158 61.361v-57.6c0-3.2 4-4.9 6.7-2.9l118.4 87c2 1.5 2 4.4 0 5.9l-118.4 87c-2.7 2-6.7.2-6.7-2.9v-57.5c-87.8 1.4-158.1 76-152.1 165.4 5.1 76.8 67.7 139.1 144.5 144 81.4 5.2 150.6-53 163-129.9 2.3-14.3 14.7-24.7 29.2-24.7 17.9 0 31.8 15.9 29 33.5-17.4 109.7-118.5 192-235.7 178.9-98-11-176.7-89.4-187.8-187.4-14.7-128.2 84.9-237.4 209.9-238.8z" />
       </svg>
-      Product2
-      <span class="notification-number updates ">3</span>
+      offer
+      <span class="notification-number updates "><?php echo $_SESSION["product2counter"];?></span>
      </a>
     </div>
    </div>
@@ -160,9 +170,7 @@ Your browser does not support the video tag.
    <div class="content-wrapper">
 
   <?php
-   require "../model/p1.php";
-   //table product variables
-   $product1 = new Product1();
+  
    $product1->showAdminProduct1();
   ?>
 

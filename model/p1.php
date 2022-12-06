@@ -7,7 +7,7 @@ class Product1
     if (isset($text['submit']) && count($data['image1']['name'])) {
       //insert into table product1
       $connect = Config::getConnexion();
-      $sql = "INSERT INTO product ( category, name, description,offer_nbr,user_id,post_date,end_time) VALUES (?, ?, ?,?, ?)";
+      $sql = "INSERT INTO product ( category, name, description,offer_nbr,user_id,post_date) VALUES (?, ?, ?,?, ?, ?)";
       $request = $connect->prepare($sql);
       $request->execute(array($text["category"], $text["name"], $text["description"], 0, $user, date('Y-m-d H:i:s')));
       $id = $connect->lastInsertId();
@@ -98,10 +98,14 @@ class Product1
       header("location:../view/back.php");
     }
   }
-  public function showUserHisProduct1($user)
+  public function product1counter()
   {
-    
-    
+    $connect = Config::getConnexion();
+    $sql = "select * from product";
+    $request1 = $connect->prepare($sql);
+    $request1->execute();
+    $data1 = $request1->fetchAll();
+    return count($data1);
   }
 }
 

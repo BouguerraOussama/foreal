@@ -4,23 +4,48 @@ class Product2
 {
   public function ReturnProduct1Detailed()
   {
+
     $connect = Config::getConnexion();
-    $sql = "select * from product";
-    $request1 = $connect->prepare($sql);
-    $request1->execute();
-    $data1 = $request1->fetchAll();
-    $sql = "select * from file";
-    $request2 = $connect->prepare($sql);
-    $request2->execute();
-    $data2 = $request2->fetchAll();
-    foreach ($data1 as $row) {
-      $i = 1;
-      if ($row["id"] == $_GET["trade"]) {
-        $product1[0] = $row;
-        foreach ($data2 as $row1) {
-          if ($row1["product_id"] == $_GET["trade"]) {
-            $product1[$i] = $row1;
-            $i++;
+    if (isset($_GET["trade"])) {
+      $sql = "select * from product";
+      $request1 = $connect->prepare($sql);
+      $request1->execute();
+      $data1 = $request1->fetchAll();
+      $sql = "select * from file";
+      $request2 = $connect->prepare($sql);
+      $request2->execute();
+      $data2 = $request2->fetchAll();
+      foreach ($data1 as $row) {
+        $i = 1;
+        if ($row["id"] == $_GET["trade"]) {
+          $product1[0] = $row;
+          foreach ($data2 as $row1) {
+            if ($row1["product_id"] == $_GET["trade"]) {
+              $product1[$i] = $row1;
+              $i++;
+            }
+          }
+        }
+      }
+      
+    } else {
+      $sql = "select * from product2";
+      $request1 = $connect->prepare($sql);
+      $request1->execute();
+      $data1 = $request1->fetchAll();
+      $sql = "select * from file2";
+      $request2 = $connect->prepare($sql);
+      $request2->execute();
+      $data2 = $request2->fetchAll();
+      foreach ($data1 as $row) {
+        $i = 1;
+        if ($row["id"] == $_GET["offre"]) {
+          $product1[0] = $row;
+          foreach ($data2 as $row1) {
+            if ($row1["product_id"] == $_GET["offre"]) {
+              $product1[$i] = $row1;
+              $i++;
+            }
           }
         }
       }
@@ -28,14 +53,14 @@ class Product2
     // return a table[0]=>id/category/product... table[i]=>id_image/image...
     return $product1;
   }
-  public function addProduct2($text, $data, $id2,$user)
+  public function addProduct2($text, $data, $id2, $user)
   {
     if (isset($text['submit']) && count($data['image1']['name']) > 0) {
       $connect = Config::getConnexion();
       //insert into table product2
       $sql = "INSERT INTO product2 ( category, name, description,status,id_product,user_id) VALUES (?, ?, ?, ?, ?, ?)";
       $request = $connect->prepare($sql);
-      $request->execute(array($text["category"], $text["name"], $text["description"], 0, $id2,$user));
+      $request->execute(array($text["category"], $text["name"], $text["description"], 0, $id2, $user));
       $id = $connect->lastInsertId();
       //insert into table images 
       $p = count($data['image1']['name']);
@@ -155,6 +180,7 @@ class Product2
         }
       }
     }
+
   }
   public function AdminGestionProduit2($accept, $reject)
   {
@@ -163,21 +189,21 @@ class Product2
     if ($accept == NULL && $reject != null) {
       //decrement $number of offers in table 1
       $sql = "select * from product2 where id = $reject";
-      $request= $connect->prepare($sql);
+      $request = $connect->prepare($sql);
       $request->execute();
-      $row=$request->fetchAll();
-      $id= $row[0]['id_product'];
+      $row = $request->fetchAll();
+      $id = $row[0]['id_product'];
       $sql = "select * from product where id = $id";
       $request = $connect->prepare($sql);
       $request->execute();
       $row = $request->fetchAll();
       $decrement = $row[0]['offer_nbr'];
-      if($decrement>1){
-      $decrement--;
-      $sql = "UPDATE product SET offer_nbr = ? WHERE product.id = $id;";
-      $request = $connect->prepare($sql);
-      $request->execute(array($decrement));}
-      else{
+      if ($decrement > 1) {
+        $decrement--;
+        $sql = "UPDATE product SET offer_nbr = ? WHERE product.id = $id;";
+        $request = $connect->prepare($sql);
+        $request->execute(array($decrement));
+      } else {
         $decrement--;
         $sql = "UPDATE product SET offer_nbr = ? WHERE product.id = $id;";
         $request = $connect->prepare($sql);
@@ -198,6 +224,15 @@ class Product2
       $request->execute();
       header("location:../view/back1.php");
     }
+  }
+  public function conterProd2()
+  {
+    $connect = Config::getConnexion();
+    $sql = "select * from product2";
+    $request1 = $connect->prepare($sql);
+    $request1->execute();
+    $data1 = $request1->fetchAll();
+    return count($data1);
   }
 }
 ?>
