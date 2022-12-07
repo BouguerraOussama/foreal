@@ -122,11 +122,11 @@
                         <div class="main-menu menu-style-two">
                             <nav>
                                 <div class="logo">
-                                    <a href="index.html"><img src="img/logo/logo.png" class="logoh" alt="logo"></a>
+                                    <a href="index.php"><img src="img/logo/logo.png" class="logoh" alt="logo"></a>
                                 </div>
                                 <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.php">Home</a></li>
                                         <!-- <li><a href="#">Pages</a></li> -->
                                         <!-- <li><a href="game-overview.html">Overview</a></li> -->
                                         <!-- <li><a href="community.html">Community</a></li> -->
@@ -331,7 +331,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="footer-widget mb-50">
                             <div class="footer-logo mb-35">
-                                <a href="index.html"><img src="img/favicon.png" class="logof" alt=""></a>
+                                <a href="index.php"><img src="img/favicon.png" class="logof" alt=""></a>
                             </div>
                             <div class="footer-text">
                                 <p>Gemas marketplace the relase etras thats sheets continig passag.</p>
@@ -416,7 +416,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright-text">
-                            <p>Copyright © 2022 <a href="index.html">OnlyTrades</a> All Rights Reserved.</p>
+                            <p>Copyright © 2022 <a href="index.php">OnlyTrades</a> All Rights Reserved.</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 d-none d-md-block">

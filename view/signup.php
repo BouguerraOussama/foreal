@@ -41,7 +41,7 @@
                 <nav>
                   <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
                     <ul>
-                      <li class="show"><a href="index.html">Home</a></li>
+                      <li class="show"><a href="index.php">Home</a></li>
                       <li><a href="trade.html">Trade</a></li>
                       <li><a href="Auction.html">Auction</a></li>
                       <li><a href="POINTSSHOP.html">POINTS SHOP</a></li>
@@ -64,7 +64,7 @@
         <div class="card card-4">
           <div class="card-body">
             <div class="register100-pic js-tilt" data-tilt>
-              <a href="index.html"><img src="img/logo/logo.png" alt="IMG" /></a>
+              <a href="index.php"><img src="img/logo/logo.png" alt="IMG" /></a>
             </div>
             <h2 class="title">
               Register <span style="color: rgb(54, 169, 225)">Now !</span>
@@ -142,7 +142,7 @@
             <div class="col-lg-6 col-md-6">
               <div class="copyright-text">
                 <p>
-                  Copyright © 2022 <a href="index.html">OnlyTrades</a> All
+                  Copyright © 2022 <a href="index.php">OnlyTrades</a> All
                   Rights Reserved.
                 </p>
               </div>

@@ -58,7 +58,7 @@
                                         <li><a href="#">OFFER</a></li>
                                     </ul>
                                     <div>
-                                        <a href="index.html"><img src="img/logo/h3_logo.png" alt="Logo" /></a>
+                                        <a href="index.php"><img src="img/logo/h3_logo.png" alt="Logo" /></a>
                                     </div>
                                     <ul class="right">
                                         <li><a href="#">AUCTION</a></li>

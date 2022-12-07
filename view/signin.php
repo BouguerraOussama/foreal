@@ -38,7 +38,7 @@
     <div class="container-login100">
       <div class="wrap-login100">
         <div class="login100-pic js-tilt" data-tilt>
-          <a href="index.html"><img src="img/logo/logo.png" alt="IMG" /></a>
+          <a href="index.php"><img src="img/logo/logo.png" alt="IMG" /></a>
         </div>
 
 
@@ -71,7 +71,7 @@
 
           <div class="text-center p-t-12">
             <span class="txt1"> Forgot </span>
-            <a class="txt2" href="#"> Username / Password? </a>
+            <a class="txt2" href="emailResetPassword.php"> Password? </a>
           </div>
 
           <div class="text-center p-t-136">
@@ -90,7 +90,7 @@
             <div class="col-lg-6 col-md-6">
               <div class="copyright-text">
                 <p>
-                  Copyright © 2022 <a href="index.html">OnlyTrades</a> All
+                  Copyright © 2022 <a href="index.php">OnlyTrades</a> All
                   Rights Reserved.
                 </p>
               </div>

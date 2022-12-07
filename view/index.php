@@ -119,7 +119,7 @@
             <div class="main-menu menu-style-two">
               <nav>
                 <div class="logo">
-                  <a href="index.html"><img src="img/logo/logo.png" class="logoh" alt="logo" /></a>
+                  <a href="index.php"><img src="img/logo/logo.png" class="logoh" alt="logo" /></a>
                 </div>
                 <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
                   <ul>
@@ -150,14 +150,14 @@
 
                             <div class="cart-content">
                               <h4>
-                                <a href="<?php echo $loggedIn ?  "profile.php" : "#" ?>"><?php echo $loggedIn ? "Hello  &nbsp;" . $user['username'] : "Join the community now!" ?></a>
+                                <a aria-disabled="true" href="<?php echo $loggedIn ?  "profile.php" : "#" ?>"><?php echo $loggedIn ? "Hello  &nbsp;" . $user['username'] : "Join the community now!" ?></a>
                               </h4>
 
                           </li>
                           <li>
-                            <div class="checkout-link">
+                            <div class="checkout-link" aria-disabled="true">
 
-                              <a href="<?php echo $loggedIn ?  "profile.php" : "signin.php" ?>"><?php echo $loggedIn ?  "Profile" : "Login" ?></a>
+                              <a aria-disabled="true" href="<?php echo $loggedIn ?  "profile.php" : "signin.php" ?>"><?php echo $loggedIn ?  "Profile" : "Login As Member" ?> </a>
                               <a class="red-color" href="<?php echo $loggedIn ?  'logout.php' : "signup.php" ?>"><?php echo $loggedIn ?  "Log out" : "Sign up" ?></a>
                             </div>
                           </li>
@@ -966,7 +966,7 @@
           <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="footer-widget mb-50">
               <div class="footer-logo mb-35">
-                <a href="index.html"><img src="img/favicon.png" class="logof" alt="logo_footer  " /></a>
+                <a href="index.php"><img src="img/favicon.png" class="logof" alt="logo_footer  " /></a>
               </div>
               <div class="footer-text">
                 <p>
@@ -1073,7 +1073,7 @@
           <div class="col-lg-6 col-md-6">
             <div class="copyright-text">
               <p>
-                Copyright © 2022 <a href="index.html">OnlyTrades</a> All
+                Copyright © 2022 <a href="index.php">OnlyTrades</a> All
                 Rights Reserved.
               </p>
             </div>
@@ -1112,6 +1112,6 @@
   <script src="js/main.js"></script>
 </body>
 
-<!-- Mirrored from themebeyond.com/html/geco/Geco/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:00:20 GMT -->
+<!-- Mirrored from themebeyond.com/html/geco/Geco/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2022 13:00:20 GMT -->
 
 </html>
