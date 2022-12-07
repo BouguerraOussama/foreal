@@ -67,13 +67,13 @@ if (isset($_POST['reg_user'])) {
         // user nickname
         setcookie('_uiid_', $d_user_nickname, time() + 60 * 60 * 24, '/', '', '', true);
         $_SESSION['user_name'] = $username;
-        $_SESSION['login'] = 'success';
+
         // $password = md5($password_1); //encrypt the password before saving in the database
         $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
         $code = rand(1111, 9999);
         $query = "INSERT INTO users (username, first_name ,last_name, email, password ,birthdate,gender,verification_token) VALUES (:username,:firstName,:lastName, :email, :password,:birthdate,:gender,:verification_token)";
         $stmt = $pdo->prepare($query);
-        $stmt->execute([
+        if ($stmt->execute([
             ':firstName' => $firstName,
             ':lastName' => $lastName,
             ':username' => $username,
@@ -82,7 +82,12 @@ if (isset($_POST['reg_user'])) {
             ':birthdate' => $birthdate,
             ':gender' => $gender,
             ':verification_token' => $code
-        ]);
+        ])) {
+            $_SESSION['login'] = 'success';
+        } else {
+            $_SESSION['login'] = 'failed';
+        }
+
         $last_id = $pdo->lastInsertId();
         // userid
         $_SESSION['id'] = $last_id;
@@ -146,19 +151,25 @@ if (isset($_POST['edit_user'])) {
     setcookie('_uiid_', $d_user_nickname, time() + 60 * 60 * 24, '/', '', '', true);
     $_SESSION['user_name'] = $username;
     $_SESSION['role'] = $user_role;
-    $_SESSION['login'] = 'success';
+
     // $password = md5($password_1); //encrypt the password before saving in the database
     $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
     $query = "UPDATE users SET username = :username, email = :email, first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([
-        ':username' => $username,
-        ':email' => $email,
-        ':first_name' => $firstName,
-        ':last_name' => $lastName,
-        ':password' => $hash,
-        ':id' => $user['id']
-    ]);
+    if (
+        $stmt->execute([
+            ':username' => $username,
+            ':email' => $email,
+            ':first_name' => $firstName,
+            ':last_name' => $lastName,
+            ':password' => $hash,
+            ':id' => $user['id']
+        ])
+    ) {
+        $_SESSION['edit'] = 'success';
+    } else {
+        $_SESSION['edit'] = 'failed';
+    }
     header('Location: http://localhost/foreal/view/');
     die();
 }
@@ -199,8 +210,8 @@ if (isset($_POST['login_user'])) {
             $_SESSION['user_name'] = $user_name;
             $_SESSION['id'] = $user['id'];
             $_SESSION['role'] = $user_role;
-            
             if ($user_role == 'ADMIN') {
+                $_SESSION['login'] = 'not_user';
                 header('Location: http://localhost/foreal/view/signinAdmin.php');
                 die();
             } else {
@@ -250,14 +261,14 @@ if (isset($_POST['login_admin'])) {
             $_SESSION['user_name'] = $user_name;
             $_SESSION['id'] = $user['id'];
             $_SESSION['role'] = $user_role;
-            $_SESSION['login'] = 'success';
             if ($user_role == 'ADMIN') {
                 $_SESSION['login'] = 'success';
                 header('Location: http://localhost/foreal/view/userDashboard.php');
                 die();
             } else {
+                $_SESSION['login'] = 'not_admin';
                 header('Location: http://localhost/foreal/view/signin.php');
-                die();      
+                die();
             }
         } else {
             $error_password = "Wrong password!";
@@ -269,7 +280,7 @@ if (isset($_POST['login_admin'])) {
 
 if (isset($_POST['reset_pass_mail'])) {
     $email = trim($_POST['email']);
-    
+
     $sql = "SELECT * FROM users WHERE email = :email";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
@@ -286,7 +297,8 @@ if (isset($_POST['reset_pass_mail'])) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         $message = '<div style="text-align: center;"><div style="color:#1c1421;font-size: 20px;"> Please click this button to be redirected to your reset password page: </div > <br><br> <div style="background-color:#1c1421;border:none;color:white;padding: 20px;text-align: center;display: inline-block;font-size: 16px;margin: 3px 2px; border-radius: 8px;"> <a href=http://localhost/foreal/view/resetPassword.php>  <i>Go to reset page</i></a></div> <br><br> <em style="font-size: 20px;">Thank you for using OnlyTrades!</em></div>';
         sendEmail($email, "only.trades.tn@gmail.com", "Reset your password", $message);
-        $_SESSION['email'] = $email;     
+        $_SESSION['email'] = $email;
+        $_SESSION['reset_email'] = 'success';
     }
 }
 
@@ -302,6 +314,7 @@ if (isset($_POST['reset_pass'])) {
         ':password' => $hash,
         ':email' => $_SESSION['email']
     ]);
+    $_SESSION['reset'] = 'success';
     header('Location: http://localhost/foreal/view/');
     die();
 }

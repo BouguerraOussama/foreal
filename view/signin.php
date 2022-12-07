@@ -22,6 +22,9 @@
   <link rel="stylesheet" type="text/css" href="css/util.css" />
   <link rel="stylesheet" type="text/css" href="css/login.css" />
   <!--===============================================================================================-->
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 
 <body>
@@ -33,7 +36,14 @@
       </div>
     </div>
   </div>
-
+  <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 'success')) { ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 1500; // 1.5s
+        toastr.success('You are logged in!');
+      });
+    </script>
+  <?php } ?>
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">

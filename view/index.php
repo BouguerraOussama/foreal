@@ -40,14 +40,7 @@
       </div>
     </div>
   </div>
-  <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 'success')) { ?>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        toastr.options.timeOut = 1500; // 1.5s
-        toastr.success('Login Successful!');
-      });
-    </script>
-  <?php } ?>
+ 
 
   <!-- preloader-end -->
 
