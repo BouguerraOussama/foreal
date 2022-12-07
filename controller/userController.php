@@ -22,8 +22,8 @@ function sendEmail($to, $from, $subject, $message)
     $mail->isSMTP(); //Send using SMTP
     $mail->Host = "smtp.gmail.com"; //Set the SMTP server to send through
     $mail->SMTPAuth = true; //Enable SMTP authentication
-    $mail->Username = 'mohamedmahdi.soussi@esprit.tn'; //SMTP username
-    $mail->Password = '213JMT4853'; //SMTP password
+    $mail->Username = 'only.trades.tn@gmail.com'; //SMTP username
+    $mail->Password = 'hbebdhacbzaamzoi'; //SMTP password
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
@@ -199,13 +199,65 @@ if (isset($_POST['login_user'])) {
             $_SESSION['user_name'] = $user_name;
             $_SESSION['id'] = $user['id'];
             $_SESSION['role'] = $user_role;
-            $_SESSION['login'] = 'success';
+            
             if ($user_role == 'ADMIN') {
-                header('Location: http://localhost/foreal/view/back.html');
+                header('Location: http://localhost/foreal/view/signinAdmin.php');
                 die();
             } else {
+                $_SESSION['login'] = 'success';
                 header('Location: http://localhost/foreal/view/');
                 die();
+            }
+        } else {
+            $error_password = "Wrong password!";
+        }
+    }
+}
+
+// LOGIN ADMIN
+if (isset($_POST['login_admin'])) {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $sql = "SELECT * FROM users WHERE email = :email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':email' => $email
+    ]);
+    $count = $stmt->rowCount();
+    if ($count == 0) {
+        $error = "Wrong credentials!";
+    } else if ($count > 1) {
+        $error = "Wrong credentials!";
+    } else if ($count == 1) {
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user_password_hash = $user['password'];
+        $user_name = $user['username'];
+        $user_role = $user['role'];
+        $user_status = $user['isBanned'];
+        $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
+        if ($user_status == 1) {
+            $error_ban = "user Banned! <br> Please contact the administration for more details. ";
+        } else if (strcmp($hash, $password)) {
+            $success = "Sign in successful!";
+            $user_id = $user['id'];
+            $user_nickname = $user['username'];
+            $d_user_id = base64_encode($user_id);
+            $d_user_nickname = base64_encode($user_nickname);
+            // userid
+            setcookie('_uid_', $d_user_id, time() + 60 * 60 * 24, '/', '', '', true);
+            // user nickname
+            setcookie('_uiid_', $d_user_nickname, time() + 60 * 60 * 24, '/', '', '', true);
+            $_SESSION['user_name'] = $user_name;
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['role'] = $user_role;
+            $_SESSION['login'] = 'success';
+            if ($user_role == 'ADMIN') {
+                $_SESSION['login'] = 'success';
+                header('Location: http://localhost/foreal/view/userDashboard.php');
+                die();
+            } else {
+                header('Location: http://localhost/foreal/view/signin.php');
+                die();      
             }
         } else {
             $error_password = "Wrong password!";

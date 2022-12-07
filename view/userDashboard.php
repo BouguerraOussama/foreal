@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 
 <body>
@@ -37,6 +40,14 @@
       </div>
     </div>
   </div>
+  <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 'success')) { ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 1500; // 1.5s
+        toastr.success('Login Successful!');
+      });
+    </script>
+  <?php } ?>
   <!-- preloader-end -->
 
   <!-- header-area -->

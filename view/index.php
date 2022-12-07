@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="css/default.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 
 <body>
@@ -37,6 +40,15 @@
       </div>
     </div>
   </div>
+  <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 'success')) { ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 1500; // 1.5s
+        toastr.success('Login Successful!');
+      });
+    </script>
+  <?php } ?>
+
   <!-- preloader-end -->
 
   <!-- header-area -->
@@ -150,20 +162,40 @@
 
                             <div class="cart-content">
                               <h4>
-                                <a aria-disabled="true" href="<?php echo $loggedIn ?  "profile.php" : "#" ?>"><?php echo $loggedIn ? "Hello  &nbsp;" . $user['username'] : "Join the community now!" ?></a>
+                                <?php if ($loggedIn == false) { ?>
+                                  <a href="#">Join the community now!</a>
+                                <?php } elseif ($loggedIn == true && $user['isVerified'] == true) { ?>
+                                  <a href="profile.php"><?php echo "Hello  &nbsp;" . $user['username'] ?></a>
+                                <?php } elseif ($loggedIn == true && $user['isVerified'] == false) { ?>
+                                  <a href="#"><?php echo "Hello  &nbsp;" . $user['username'] . "<br> Your account is not verified! Please check your email!" ?></a>
+                                <?php }  ?>
                               </h4>
-
                           </li>
                           <li>
-                            <div class="checkout-link" aria-disabled="true">
-
-                              <a aria-disabled="true" href="<?php echo $loggedIn ?  "profile.php" : "signin.php" ?>"><?php echo $loggedIn ?  "Profile" : "Login As Member" ?> </a>
-                              <a class="red-color" href="<?php echo $loggedIn ?  'logout.php' : "signup.php" ?>"><?php echo $loggedIn ?  "Log out" : "Sign up" ?></a>
-                            </div>
+                            <?php if ($loggedIn == false) { ?>
+                              <div class="checkout-link">
+                                <a href="signin.php">Login As Member </a>
+                                <a href="signinAdmin.php">Login As Admin </a>
+                                <a class="red-color" href="signup.php">Sign up</a>
+                              </div>
+                            <?php } elseif ($loggedIn == true && $user['role'] == 'MEMBER' && $user['isVerified'] == true) { ?>
+                              <div class="checkout-link">
+                                <a href="profile.php">Member Profile </a>
+                                <a class="red-color" href="logout.php">Log Out</a>
+                              </div>
+                            <?php } elseif ($loggedIn == true && $user['role'] == 'ADMIN'  && $user['isVerified'] == true) { ?>
+                              <div class="checkout-link">
+                                <a href="userDashboard.php">Admin Dashboard</a>
+                                <a class="red-color" href="logout.php">Log Out</a>
+                              </div>
+                            <?php } elseif ($loggedIn == true &&  $user['isVerified'] == false) { ?>
+                              <div class="checkout-link">
+                                <a class="red-color" href="logout.php">Log Out</a>
+                              </div>
+                            <?php }  ?>
                           </li>
                         </ul>
                     </li>
-
                   </ul>
                 </div>
                 <div class="header-action">

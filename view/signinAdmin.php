@@ -46,7 +46,7 @@
 
 
           <span class="login100-form-title">
-            SIGN IN <span style="color: rgb(54, 169, 225)">NOW</span>
+            ARE YOU AN <span style="color: rgb(54, 169, 225)"> ADMIN?</span>
           </span>
 
           <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
@@ -66,7 +66,7 @@
           </div>
 
           <div class="container-login100-form-btn">
-            <button name="login_user" class="login100-form-btn">Login</button>
+            <button name="login_admin" class="login100-form-btn">Login</button>
           </div>
 
           <div class="text-center p-t-12">
@@ -81,8 +81,8 @@
             </a>
           </div>
           <div class="text-center p-t-10">
-            <a class="txt2" href="signinAdmin.php">
-              Are you an admin?
+            <a class="txt2" href="signin.php">
+              Are you a member?
               <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
             </a>
           </div>
