@@ -6786,7 +6786,7 @@ input[type=button].btn-block {
 .card-header {
   padding: 1rem 1.35rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: #444;
   border-bottom: 0 solid rgba(0, 0, 0, 0.125);
 }
 .card-header:first-child {
@@ -19337,7 +19337,7 @@ body {
   border-bottom: none;
 }
 .card:not([class*=bg-]) .card-header {
-  color: #0061f2;
+  color: whitesmoke;
 }
 
 .card-tabbed .card-header {

@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="css/register.css" />
   <link rel="stylesheet" href="css/login.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
   <!-- Main CSS-->
 </head>
 
@@ -31,6 +34,21 @@
       </div>
     </div>
   </div>
+  <?php if (($_SESSION['email'] == 'success') && ($_SESSION['register'] == 'success')) { ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 2500; // 1.5s
+        toastr.success('Check your email for verification!', 'Successfully registered');
+      });
+    </script>
+  <?php } elseif (($_SESSION['email'] != 'success') || ($_SESSION['register'] != 'success')) { ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 2500; // 1.5s
+        toastr.error('Check your information!', 'Error');
+      });
+    </script>
+  <?php } ?>
   <!-- preloader-end -->
   <!-- <header>
       <div id="sticky-header" class="transparent-header-login">

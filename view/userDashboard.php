@@ -41,12 +41,12 @@
     </div>
   </div>
   <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 'success')) { ?>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      toastr.options.timeOut = 1500; // 1.5s
-      toastr.success('Login Successful!');
-    });
-  </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 2500; // 1.5s
+        toastr.success('Welcome to admin dashboard', 'Login Successful!');
+      });
+    </script>
   <?php } ?>
   <!-- preloader-end -->
 
@@ -114,13 +114,10 @@
 
           <div class="col-lg-6 col-md-8">
             <div class="form-group mr-0 mr-lg-2">
-              <input name="search-keyword" id="myInput" onkeyup="myFunction()"
-                class="form-control form-control-solid rounded-pill" type="text" placeholder="Search users..." />
+              <input name="search-keyword" id="myInput" onkeyup="myFunction()" class="form-control form-control-solid rounded-pill" type="text" placeholder="Search users..." />
             </div>
           </div>
-          <a href="addUser.php" title="Add new user" class="btn btn-white">
-            <div class="page-header-icon"><i data-feather="plus"></i></div>
-          </a>
+
         </div>
         <br /><br />
       </div>
@@ -131,8 +128,19 @@
         <div class="card-header">USERS</div>
         <div class="card-body">
           <div class="datatable table-responsive">
+            <div class="dropdown">
+              <button class="btn btn-teal dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Download database as
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="./pdf_genrator/generate_pdf users.php">PDF</a>
+                <a class="dropdown-item" onclick="exportTableToExcel('dataTable')" href="#">Excel</a>
 
+              </div>
+            </div>
             <br>
+
+           
             <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -163,113 +171,109 @@
                   $user_role = $users['role'];
                   $isBanned = $users['isBanned'];
                 ?>
-                <tr>
-                  <td>
-                    <?php echo $user_id; ?>
-                  </td>
-                  <td>
-                    <?php echo $user_name; ?>
-                  </td>
-                  <td>
-                    <?php echo $user_firstname; ?>
-                    <?php echo $user_lastname; ?>
-                  </td>
-                  <td>
-                    <?php echo $email; ?>
-                  </td>
-                  <td>
-                    <?php echo $registered_on; ?>
-                  </td>
+                  <tr>
+                    <td>
+                      <?php echo $user_id; ?>
+                    </td>
+                    <td>
+                      <?php echo $user_name; ?>
+                    </td>
+                    <td>
+                      <?php echo $user_firstname; ?>
+                      <?php echo $user_lastname; ?>
+                    </td>
+                    <td>
+                      <?php echo $email; ?>
+                    </td>
+                    <td>
+                      <?php echo $registered_on; ?>
+                    </td>
 
-                  <td>
-                    <div class="badge badge-<?php echo $user_role == "ADMIN" ? "primary" : "warning"; ?>">
-                      <?php echo $user_role; ?>
-                    </div>
-                  </td>
-                  <td>
-                    <?php
-                  if (isset($_COOKIE['_uid_'])) {
-                    $u_id = base64_decode($_COOKIE['_uid_']);
-                  } else if (isset($_SESSION['id'])) {
-                    $u_id = $_SESSION['id'];
-                  } else {
-                    $u_id = -1;
-                  }
+                    <td>
+                      <div class="badge badge-<?php echo $user_role == "ADMIN" ? "primary" : "warning"; ?>">
+                        <?php echo $user_role; ?>
+                      </div>
+                    </td>
+                    <td>
+                      <?php
+                      if (isset($_COOKIE['_uid_'])) {
+                        $u_id = base64_decode($_COOKIE['_uid_']);
+                      } else if (isset($_SESSION['id'])) {
+                        $u_id = $_SESSION['id'];
+                      } else {
+                        $u_id = -1;
+                      }
                       ?>
-                    <?php
-                  if ($user_id == $u_id) { ?>
-                    <button title="You can't edit yourself!" class="btn btn-info btn-icon"><i
-                        data-feather="edit"></i></button>
-                    <?php } else { ?>
-                    <form action="update-user.php" method="POST">
-                      <input type="hidden" name="id" value="<?php echo $user_id; ?>">
-                      <button name="edit-user" class="btn btn-info btn-icon"><i data-feather="edit"></i></button>
-                    </form>
-                    <?php }
-                      ?>
-
-                  </td>
-                  <td>
-
-                    <?php
-                  if (isset($_POST['user'])) {
-                    $u_id = $_POST['id'];
-                    $sql = "DELETE FROM users WHERE id = :id";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute([':id' => $u_id]);
-                    header('Location: http://localhost/foreal/view/userDashboard');
-                    die();
-                  }
-                      ?>
-                    <?php
-                  if (isset($_COOKIE['_uid_'])) {
-                    $u_id = base64_decode($_COOKIE['_uid_']);
-                  } else if (isset($_SESSION['id'])) {
-                    $u_id = $_SESSION['id'];
-                  } else {
-                    $u_id = -1;
-                  }
+                      <?php
+                      if ($user_id == $u_id) { ?>
+                        <button title="You can't edit yourself!" class="btn btn-info btn-icon"><i data-feather="edit"></i></button>
+                      <?php } else { ?>
+                        <form action="update-user.php" method="POST">
+                          <input type="hidden" name="id" value="<?php echo $user_id; ?>">
+                          <button name="edit-user" class="btn btn-info btn-icon"><i data-feather="edit"></i></button>
+                        </form>
+                      <?php }
                       ?>
 
-                    <?php
-                  if ($user_id == $u_id) { ?>
-                    <button title="You can't delete yourself!" class="btn btn-red btn-icon"><i
-                        data-feather="trash-2"></i></button>
-                    <?php } else { ?>
-                    <form action="userDashboard.php" method="POST">
-                      <input type="hidden" name="id" value="<?php echo $user_id; ?>">
-                      <button name="user" type="submit" class=" btn-danger btn-icon"><i
-                          data-feather="trash-2"></i></button>
-                    </form>
-                    <?php }
+                    </td>
+                    <td>
+
+                      <?php
+                      if (isset($_POST['user'])) {
+                        $u_id = $_POST['id'];
+                        $sql = "DELETE FROM users WHERE id = :id";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([':id' => $u_id]);
+                        header('Location: http://localhost/foreal/view/userDashboard');
+                        die();
+                      }
+                      ?>
+                      <?php
+                      if (isset($_COOKIE['_uid_'])) {
+                        $u_id = base64_decode($_COOKIE['_uid_']);
+                      } else if (isset($_SESSION['id'])) {
+                        $u_id = $_SESSION['id'];
+                      } else {
+                        $u_id = -1;
+                      }
                       ?>
 
-                  </td>
-                  <td>
-                    <?php
-                  if (isset($_POST['access'])) {
-
-                    $u_id = $_POST['id'];
-                    $isBanned = !$_POST['isBanned'];
-                    $sql = "UPDATE users SET isBanned = :isBanned WHERE id = :id";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute([':id' => $u_id, ':isBanned' => $isBanned]);
-                    header("Location: userDashboard.php");
-                    die();
-                  }
+                      <?php
+                      if ($user_id == $u_id) { ?>
+                        <button title="You can't delete yourself!" class="btn btn-red btn-icon"><i data-feather="trash-2"></i></button>
+                      <?php } else { ?>
+                        <form action="userDashboard.php" method="POST">
+                          <input type="hidden" name="id" value="<?php echo $user_id; ?>">
+                          <button name="user" type="submit" class=" btn-danger btn-icon"><i data-feather="trash-2"></i></button>
+                        </form>
+                      <?php }
                       ?>
-                    <form action="userDashboard.php" method="POST">
-                      <input type="hidden" name="id" value="<?php echo $user_id; ?>">
-                      <input type="hidden" name="isBanned" value="<?php echo $isBanned; ?>">
 
-                      <button type="submit" name="access"
-                        class="btn btn-<?php echo ($isBanned == "0" ? "success" : "red"); ?>">
-                        <?php echo ($isBanned == "1" ? "UNBAN" : "Ban"); ?>
-                      </button>
-                    </form>
+                    </td>
+                    <td>
+                      <?php
+                      if (isset($_POST['access'])) {
 
-                  </td>
-                </tr>
+                        $u_id = $_POST['id'];
+                        $isBanned = !$_POST['isBanned'];
+                        $sql = "UPDATE users SET isBanned = :isBanned WHERE id = :id";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([':id' => $u_id, ':isBanned' => $isBanned]);
+                        header("Location: userDashboard.php");
+                        die();
+                      }
+                      ?>
+                      <form action="userDashboard.php" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $user_id; ?>">
+                        <input type="hidden" name="isBanned" value="<?php echo $isBanned; ?>">
+
+                        <button type="submit" name="access" class="btn btn-<?php echo ($isBanned == "0" ? "success" : "red"); ?>">
+                          <?php echo ($isBanned == "1" ? "UNBAN" : "Ban"); ?>
+                        </button>
+                      </form>
+
+                    </td>
+                  </tr>
                 <?php }
                 ?>
               </tbody>

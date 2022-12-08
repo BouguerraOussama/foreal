@@ -43,8 +43,16 @@
   <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 'success')) { ?>
     <script type="text/javascript">
       $(document).ready(function() {
-        toastr.options.timeOut = 1500; // 1.5s
-        toastr.success('You are logged in!');
+        toastr.options.timeOut = 2500; // 1.5s
+        toastr.success('Welcome to our homepage', 'Login Successful!');
+      });
+    </script>
+  <?php } ?>
+  <?php if (isset($_SESSION['edit']) && ($_SESSION['edit'] == 'success')) { ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 2000; // 1.5s
+        toastr.success('Information were edited', 'Edit Successful!');
       });
     </script>
   <?php } ?>

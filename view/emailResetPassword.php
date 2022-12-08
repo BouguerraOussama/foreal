@@ -1,3 +1,5 @@
+<?php include('../controller/userController.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="css/util.css" />
     <link rel="stylesheet" type="text/css" href="css/login.css" />
     <!--===============================================================================================-->
+
 </head>
 
 <body>

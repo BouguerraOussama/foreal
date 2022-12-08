@@ -1,3 +1,5 @@
+<?php include('../controller/userController.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,14 +38,23 @@
       </div>
     </div>
   </div>
-  <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 'success')) { ?>
+  <?php if ($_SESSION['loginAs'] == 'not_admin') { ?>
     <script type="text/javascript">
       $(document).ready(function() {
-        toastr.options.timeOut = 1500; // 1.5s
-        toastr.success('You are logged in!');
+        toastr.options.timeOut = 3000; // 1.5s
+        toastr.warning('You are not an admin. Please login from here.');
       });
     </script>
   <?php } ?>
+  <?php if ($_SESSION['reset'] == 'success') { ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        toastr.options.timeOut = 2500; // 1.5s
+        toastr.success('Your password is reset', 'Success!');
+      });
+    </script>
+  <?php }$_SESSION["reset"]= ''; ?>
+
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
